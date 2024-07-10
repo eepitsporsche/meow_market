@@ -6,13 +6,29 @@ function Nav() {
   function showNavigation() {
     if (Auth.loggedIn()) {
       return (
-        <ul className="flex-row">
-          <li className="mx-1">
-            <Link to="/orderHistory">
-              Order History
+        <ul className="">
+          <li className="">
+            <Link to="/home">
+              Home
             </Link>
           </li>
-          <li className="mx-1">
+          <li className="">
+            <Link to="/shop">
+              Shop
+            </Link>
+          </li>
+          <li className="">
+            <Link to="/account">
+              Account
+            </Link>
+            <li className="">
+            <Link to="/subscription">
+              Subscription
+            </Link>
+          </li>
+           
+          </li>
+          <li className="">
             {/* this is not using the Link component to logout or user and then refresh the application to the start */}
             <a href="/" onClick={() => Auth.logout()}>
               Logout
@@ -22,13 +38,13 @@ function Nav() {
       );
     } else {
       return (
-        <ul className="flex-row">
-          <li className="mx-1">
+        <ul className="">
+          <li className="">
             <Link to="/signup">
               Signup
             </Link>
           </li>
-          <li className="mx-1">
+          <li className="">
             <Link to="/login">
               Login
             </Link>
@@ -39,7 +55,7 @@ function Nav() {
   }
 
   return (
-    <header className="flex-row px-1">
+    <header className="">
       <h1>
         <Link to="/">
           Welcome to Meow Market!!!

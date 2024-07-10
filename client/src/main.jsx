@@ -9,7 +9,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 // import Success from './pages/Success';
-// import OrderHistory from './pages/OrderHistory';
+import OrderHistory from './pages/OrderHistory';
 
 const router = createBrowserRouter([
   {
@@ -27,7 +27,11 @@ const router = createBrowserRouter([
       }, {
         path: '/signup',
         element: <Signup />
-      }
+      },
+      {
+        path: '/orderHistory',
+        element: <OrderHistory />
+        }
     // {
     //     path: '/success',
     //     element: <Success />
