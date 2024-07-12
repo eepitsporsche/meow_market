@@ -1,5 +1,7 @@
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
+import "./nav.css";
+import logo from "../../../public/images/meow logo.png";
 
 function Nav() {
 
@@ -21,11 +23,11 @@ function Nav() {
             <Link to="/account">
               Account
             </Link>
-            <li className="">
+          </li>
+          <li className="">
             <Link to="/subscription">
               Subscription
             </Link>
-          </li>
           {/* <li className="">
             <Link to="/orderHistory">
               Order History
@@ -61,12 +63,12 @@ function Nav() {
 
   return (
     <header className="">
+      <div className="logo-container">
+      <img src={logo} alt="Meow Market Logo" className="logo-img" />
       <h1>
-        <Link to="/">
           Welcome to Meow Market!!!
-        </Link>
       </h1>
-
+      </div>
       <nav>
         {showNavigation()}
       </nav>

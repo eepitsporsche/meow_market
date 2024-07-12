@@ -1,0 +1,94 @@
+/* Main header and navigation styles */
+body{
+    margin:0;
+    background-image: url('../../../public/images/meow\ logo.png');
+    background-size:100vw 100vh; 
+    background-repeat: no-repeat;
+    background-position: center top;
+
+}
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5); /* Adjust opacity here (0.5 for 50% transparency) */
+    z-index: -1; /* Place behind the background image */
+}
+.logo-container {
+    display: flex;
+    align-items: center;
+  }
+  
+.logo-img {
+    width: 100px; /* Adjust width as needed */
+    height: auto; /* Automatically adjusts height */
+    margin-right: 10px; /* Adjust spacing */
+    border-radius: 10px;
+  }
+  
+header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center; /* Align text and logo vertically */
+    color: #fff;
+  }
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  nav ul li {
+    margin-right: 10px;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  nav ul li a:hover {
+    background-color: #5ea6e0;
+    border-radius: 5px;
+  }
+  
+  /* Animation for navigation items */
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  nav ul li {
+    animation: slideIn 0.5s ease-out;
+  }
+  
+  
