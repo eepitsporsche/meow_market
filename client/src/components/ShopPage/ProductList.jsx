@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import productsData from '../data/products';
+import productsData from '../../data/products';
 
 const ProductList = ({ catDetails, handleAddToCart, handleAddToSubscription }) => {
   const [filteredProducts, setFilteredProducts] = useState([]);

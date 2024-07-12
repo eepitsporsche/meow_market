@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import CatForm from '../components/CatForm';
-import ProductList from '../components/ProductList';
-import Cart from '../components/Cart';
+import CatForm from '../components/ShopPage/CatForm';
+import ProductList from '../components/ShopPage/ProductList';
+import Cart from '../components/ShopPage/Cart';
 import productsData from '../data/products';
-import Subscription from '../components/Subscription';
+import Subscription from '../components/ShopPage/Subscription';
 
 function Shop() {
   const [catDetails, setCatDetails] = useState({});
