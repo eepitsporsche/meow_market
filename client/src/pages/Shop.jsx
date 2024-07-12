@@ -3,54 +3,63 @@ import CatForm from '../components/CatForm';
 import ProductList from '../components/ProductList';
 import Cart from '../components/Cart';
 import productsData from '../data/products';
+import Subscription from '../components/Subscription';
 
 function Shop() {
-  const [catDetails, setCatDetails] = useState({ name: '', age: '', breed: '' });
+  const [catDetails, setCatDetails] = useState({});
   const [cart, setCart] = useState([]);
+  const [subscription, setSubscription] = useState([]);
 
-  // Load cart from local storage on mount
   useEffect(() => {
     const savedCart = JSON.parse(localStorage.getItem('cart'));
-    if (savedCart) {
-      setCart(savedCart);
-    }
+    const savedSubscription = JSON.parse(localStorage.getItem('subscription'));
+    if (savedCart) setCart(savedCart);
+    if (savedSubscription) setSubscription(savedSubscription);
   }, []);
 
-  // Save cart to local storage whenever it changes
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart));
-  }, [cart]);
-
-  const handleCatDetailsChange = (e) => {
-    const { name, value } = e.target;
-    setCatDetails({ ...catDetails, [name]: value });
-  };
+    localStorage.setItem('subscription', JSON.stringify(subscription));
+  }, [cart, subscription]);
 
   const handleAddToCart = (product) => {
-    setCart([...cart, { ...product, monthly: false }]);
+    setCart(prevCart => {
+      const existingProduct = prevCart.find(item => item.id === product.id);
+      if (existingProduct) {
+        return prevCart.map(item =>
+          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+        );
+      } else {
+        return [...prevCart, { ...product, quantity: 1 }];
+      }
+    });
   };
 
-  const handleMonthlyToggle = (productId) => {
-    setCart(cart.map(item =>
-      item.id === productId ? { ...item, monthly: !item.monthly } : item
-    ));
+  const handleRemoveFromCart = (productId) => {
+    setCart(prevCart => prevCart.filter(item => item.id !== productId));
   };
 
-  const handleClearCart = () => {
-    setCart([]);
-    localStorage.removeItem('cart');
+  const handleAddToSubscription = (product) => {
+    if (subscription.length < 3) {
+      setSubscription([...subscription, product]);
+    } else {
+      alert('Only three products can be added to monthly subscription.');
+    }
   };
 
-  const filteredProducts = productsData.filter(product => product.breed === catDetails.breed);
-
+  const handleRemoveFromSubscription = (productId) => {
+    setSubscription(subscription.filter(product => product.id !== productId));
+  };
+  
   return (
-    <div>
-      <h1>Online Cat Store</h1>
-      <CatForm catDetails={catDetails} handleCatDetailsChange={handleCatDetailsChange} />
-      <ProductList products={filteredProducts} handleAddToCart={handleAddToCart} catDetails={catDetails} />
-      <Cart cart={cart} handleMonthlyToggle={handleMonthlyToggle} handleClearCart={handleClearCart}/>
+    <div className="App">
+      <CatForm setCatDetails={setCatDetails} />
+      <ProductList catDetails={catDetails} handleAddToCart={handleAddToCart} handleAddToSubscription={handleAddToSubscription} />
+      <Cart cart={cart} handleRemoveFromCart={handleRemoveFromCart} />
+      <Subscription subscription={subscription} handleRemoveFromSubscription={handleRemoveFromSubscription} />
     </div>
   );
-}
+};
+
 
 export default Shop;
