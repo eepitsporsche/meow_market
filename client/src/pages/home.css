@@ -1,0 +1,165 @@
+/* styles.css */
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3) translateY(-100%);
+    }
+    50% {
+        opacity: 0.9;
+        transform: scale(1.05) translateY(10%);
+    }
+    70% {
+        opacity: 1;
+        transform: scale(0.9) translateY(-5%);
+    }
+    100% {
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Apply animation to the title */
+.homeTitle {
+    font-size: 5.5rem;
+    font-weight: bold;
+    color: #000000;
+    text-align: center;
+    margin-top: 20px;
+    animation: bounceIn 1.5s ease-out;
+    
+}
+
+
+.homeContainer1  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 30vh;
+    width: 80vh;
+    background-color: #706f6f56;
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+    margin: auto;
+    margin-bottom: 30px;
+    margin-top: 90px;
+
+  }
+  .homeContainer2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 30vh;
+    width: 80vh;
+    background-color: #706f6f56;
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+    margin: auto;
+  }
+  h2{
+    font-size: 3rem;
+  }
+  .shopBtn{
+    text-decoration: none;
+    color: #fff;
+  }
+
+  .homeContainer p {
+    margin: 10px 0;
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  .homeContainer1 button, .homeContainer2 button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #4c01a1;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .homeContainer1 button:hover, .homeContainer2 button:hover {
+    background-color: #3302a5;
+  }
+  
+ 
+ /* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .homeTitle {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .homeTitle {
+        font-size: 1.5rem;
+    }
+}
+@media (max-width: 1024px) {
+    .homeContainer1, .homeContainer2 {
+        width: 70vw;
+        height: auto;
+        margin-top: 70px; /* Adjust top margin for smaller screens */
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .homeContainer p {
+        font-size: 1.1rem;
+    }
+
+    .homeContainer1 button, .homeContainer2 button {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .homeContainer1, .homeContainer2 {
+        width: 90vw;
+        height: auto;
+        margin-top: 50px; /* Adjust top margin for smaller screens */
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .homeContainer p {
+        font-size: 1rem;
+    }
+
+    .homeContainer1 button, .homeContainer2 button {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .homeContainer1, .homeContainer2 {
+        width: 95vw;
+        height: auto;
+        margin-top: 30px; /* Adjust top margin for smaller screens */
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .homeContainer p {
+        font-size: 0.9rem;
+    }
+
+    .homeContainer1 button, .homeContainer2 button {
+        padding: 6px 12px;
+        font-size: 0.7rem;
+    }
+}

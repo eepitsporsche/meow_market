@@ -3,6 +3,7 @@ import { useMutation } from '@apollo/client';
 import { Link } from 'react-router-dom';
 import { LOGIN } from '../utils/mutations';
 import Auth from '../utils/auth';
+import "./signupLogin.css";
 
 function Login(props) {
   const [formState, setFormState] = useState({ email: '', password: '' });
@@ -30,11 +31,11 @@ function Login(props) {
   };
 
   return (
-    <div className="">
-      <Link to="/signup">← Go to Signup</Link>
+    <div className="container">
+      <Link to="/signup" className='goToLogin'>← Go to Signup</Link>
 
-      <h2>Login</h2>
-      <form onSubmit={handleFormSubmit}>
+      <h2 className='loginTitle'>Login</h2>
+      <form onSubmit={handleFormSubmit} className=' loginForm'>
         <div className="">
           <label htmlFor="email">Email address:</label>
           <input
