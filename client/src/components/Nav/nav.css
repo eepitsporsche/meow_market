@@ -1,11 +1,10 @@
 /* Main header and navigation styles */
 body{
     margin:0;
-    background-image: url('../../../public/images/meow\ logo.png');
+    background-image: url('../../../public/images/background\ logo.png');
     background-size:100vw 100vh; 
     background-repeat: no-repeat;
     background-position: center top;
-
 }
 body::before {
     content: '';
@@ -31,7 +30,7 @@ body::before {
   
 header h1 {
     margin: 0;
-    font-size: 1.5rem;
+    font-size: 3rem;
     display: flex;
     align-items: center; /* Align text and logo vertically */
     color: #fff;
@@ -47,11 +46,6 @@ header {
     margin-bottom: 20px;
   }
   
-  header h1 {
-    margin: 0;
-    font-size: 1.5rem;
-  }
-  
   nav ul {
     list-style-type: none;
     margin: 0;
@@ -61,6 +55,7 @@ header {
   
   nav ul li {
     margin-right: 10px;
+    font-size: 1.5rem;
   }
   
   nav ul li a {
@@ -71,7 +66,7 @@ header {
   }
   
   nav ul li a:hover {
-    background-color: #5ea6e0;
+    background-color: #4c01a1;
     border-radius: 5px;
   }
   
@@ -89,6 +84,31 @@ header {
   
   nav ul li {
     animation: slideIn 0.5s ease-out;
+  }
+
+  @media (max-width: 768px) {
+    header {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .logo-img {
+      width: 60px; /* Adjust logo size for smaller screens */
+      margin-bottom: 10px; /* Add space below logo */
+    }
+  
+    header h1 {
+      font-size: 1.5rem; /* Adjust header font size for smaller screens */
+    }
+  
+    nav ul {
+      flex-direction: column;
+    }
+  
+    nav ul li {
+      margin-right: 0;
+      margin-bottom: 5px; /* Add space between navigation items */
+    }
   }
   
   

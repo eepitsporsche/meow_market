@@ -12,7 +12,7 @@
   /* Header styling */
   .account-container h1 {
     margin-bottom: 20px;
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     color: #333;
   }
   
@@ -55,10 +55,11 @@
   /* Button styling */
   .edit-form button, .editBtn {
     margin-top: 10px;
+    margin-left: 20px;
     padding: 10px 20px;
     font-size: 1rem;
     color: #fff;
-    background-color: #007bff;
+    background-color: #4c01a1;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -66,7 +67,7 @@
   }
   
   .edit-form button:hover, .editBtn:hover {
-    background-color: #0056b3;
+    background-color: #3302a5;
   }
   
   /* Responsive adjustments */

@@ -66,7 +66,7 @@ function Nav() {
       <div className="logo-container">
       <img src={logo} alt="Meow Market Logo" className="logo-img" />
       <h1>
-          Welcome to Meow Market!!!
+          Meow Market
       </h1>
       </div>
       <nav>

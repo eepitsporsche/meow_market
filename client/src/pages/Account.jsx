@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
-import Auth from '../utils/auth';
+// import Auth from '../utils/auth';
 import { UPDATE_USER, GET_USER } from '../utils/mutations';
 import "./account.css"
 
