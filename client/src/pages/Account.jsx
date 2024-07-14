@@ -6,6 +6,7 @@ import "./account.css"
 
 function Account(props) {
   const { loading, data } = useQuery(GET_USER);
+  const [isSubscribed, setIsSubscribed] = useState(false);
   const [formState, setFormState] = useState({ 
     email: '', 
     password: '', 
@@ -24,6 +25,8 @@ function Account(props) {
         lastName: user.lastName,
         password: ''
       });
+      const subscribed = localStorage.getItem('subscribed');
+      setIsSubscribed(subscribed === 'true');
     }
   }, [data]);
 
@@ -62,6 +65,11 @@ function Account(props) {
         <div className="account-details">
           <p><strong>Name:</strong> {formState.firstName} {formState.lastName}</p>
           <p><strong>Email:</strong> {formState.email}</p>
+          {isSubscribed ? (
+        <p>You are subscribed to our Meow Market.</p>
+      ) : (
+        <p>You are not subscribed to Meow Market.</p>
+      )}
           <button onClick={() => setEditMode(true)} className ="editBtn">Edit Profile</button>
         </div>
       ) : (
