@@ -23,11 +23,10 @@
     font-weight: bold;
     color: #000000;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 10px;
     animation: bounceIn 1.5s ease-out;
     
 }
-
 
 .homeContainer1  {
     display: flex;
@@ -39,10 +38,11 @@
     background-color: #706f6f56;
     border-radius: 10px;
     text-align: center;
-    padding: 20px;
+    padding: 30px;
     margin: auto;
     margin-bottom: 30px;
-    margin-top: 90px;
+    margin-top: 50px;
+   
 
   }
   .homeContainer2{
@@ -57,9 +57,10 @@
     text-align: center;
     padding: 20px;
     margin: auto;
+    margin-bottom: 20px;
   }
   h2{
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
   .shopBtn{
     text-decoration: none;
@@ -89,77 +90,49 @@
   }
   
  
- /* Media queries for responsiveness */
+  @media (max-width: 1200px) {
+    .homeTitle {
+        font-size: 4rem;
+    }
+    .homeContainer1, .homeContainer2 {
+        width: 70%;
+    }
+}
+
 @media (max-width: 768px) {
     .homeTitle {
-        font-size: 2rem;
+        font-size: 3rem;
     }
-}
-
-@media (max-width: 480px) {
-    .homeTitle {
-        font-size: 1.5rem;
-    }
-}
-@media (max-width: 1024px) {
     .homeContainer1, .homeContainer2 {
-        width: 70vw;
-        height: auto;
-        margin-top: 70px; /* Adjust top margin for smaller screens */
+        width: 90%;
     }
-
-    h1 {
+    h2 {
         font-size: 2.5rem;
     }
-
-    .homeContainer p {
-        font-size: 1.1rem;
-    }
-
-    .homeContainer1 button, .homeContainer2 button {
-        padding: 8px 16px;
-        font-size: 0.9rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .homeContainer1, .homeContainer2 {
-        width: 90vw;
-        height: auto;
-        margin-top: 50px; /* Adjust top margin for smaller screens */
-    }
-
-    h1 {
-        font-size: 2rem;
-    }
-
     .homeContainer p {
         font-size: 1rem;
     }
-
     .homeContainer1 button, .homeContainer2 button {
         padding: 8px 16px;
-        font-size: 0.8rem;
+        font-size: 0.9rem;
     }
 }
 
 @media (max-width: 480px) {
+    .homeTitle {
+        font-size: 2rem;
+    }
     .homeContainer1, .homeContainer2 {
-        width: 95vw;
-        height: auto;
-        margin-top: 30px; /* Adjust top margin for smaller screens */
+        width: 95%;
     }
-
-    h1 {
-        font-size: 1.5rem;
+    h2 {
+        font-size: 2rem;
     }
-
     .homeContainer p {
         font-size: 0.9rem;
     }
-
     .homeContainer1 button, .homeContainer2 button {
         padding: 6px 12px;
-        font-size: 0.7rem;
+        font-size: 0.8rem;
     }
 }

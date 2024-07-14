@@ -23,6 +23,18 @@ const Home = () => {
         <p>Subscribe now to save more.</p>
         <button>Subscribe</button>
       </div>
+
+      {/*
+        <div className="homeContainer4">
+          <h2>Customer Reviews</h2>
+          <div className="review">
+            <blockquote>
+              "My cats love the toys I bought from here! Excellent service and fast delivery."
+            </blockquote>
+            <p>- Happy Customer</p>
+          </div>
+        </div>
+      </div> */}
     </div>
   );
 };
