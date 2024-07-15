@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom/client'
 // import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-// import Shop from './pages/Shop.jsx'
+import Shop from './pages/Shop.jsx'
 import App from './App.jsx';
 import Home from './pages/Home';
 import Detail from './pages/Detail';
@@ -35,6 +35,9 @@ const router = createBrowserRouter([
       }, {
         path: '/products/:id',
         element: <Detail />
+      }, {
+        path: '/shop',
+        element: <Shop />
       }
       //  {
       //   path: '/success',

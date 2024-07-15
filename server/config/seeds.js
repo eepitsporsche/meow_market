@@ -24,7 +24,8 @@ db.once('open', async () => {
         image: 'blue_wet_food.jpeg',
         category: categories[0]._id,
         price: 5.99,
-        quantity: 500
+        quantity: 500,
+        breed: "siamese"
         },
         {
         name: 'Reveal Natural Grain-Free Variety Fish & Chicken in Broth Flavored Wet Cat Food - 12 Cans',
