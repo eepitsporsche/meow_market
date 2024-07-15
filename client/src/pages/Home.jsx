@@ -1,14 +1,14 @@
-// import ProductList from "../components/ProductList";
-// import CategoryMenu from "../components/CategoryMenu";
-// import Cart from "../components/Cart";
+import ProductList from "../components/ProductList.jsx/index";
+import CategoryMenu from "../components/CategoryMenu";
+import Cart from "../components/Cart";
 
 const Home = () => {
   return (
     <div>
 
-      {/* <CategoryMenu />
+      <CategoryMenu />
       <ProductList />
-      <Cart /> */}
+      <Cart />
     </div>
   );
 };
