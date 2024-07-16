@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import { useLazyQuery, gql } from '@apollo/client';
 
+
+
 const GET_RECOMMENDED_PRODUCTS = gql`
   query getRecommendedProducts($breed: String!) {
     recommendedProducts(breed: $breed) {
