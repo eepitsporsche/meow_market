@@ -9,6 +9,7 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
+import "../../client/src/index.css";
 import Nav from './components/Nav';
 import Footer from './pages/Footer';
 import { StoreProvider } from './utils/GlobalState';

@@ -9,9 +9,14 @@
   margin-top: 5%; 
    
   }
+
+  .loginButtonContainer, .signupButtonContainer {
+    margin-top: 5%;
+  }
+
+
   .goToLogin{
-    color: #6200ea;
-    font-size: 2rem;
+    font-size: 1.5rem;
     cursor: pointer;
   }
   
