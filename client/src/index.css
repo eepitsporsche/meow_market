@@ -1,0 +1,20 @@
+:root {
+    --text_color: black;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Pompiere&display=swap');
+
+* {
+    font-family: "Pompiere", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+a {
+    color: var(--text_color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: rgb(188, 167, 224);
+}

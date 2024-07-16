@@ -64,10 +64,14 @@ function Nav() {
   return (
     <header className="">
       <div className="logo-container">
+      <a href='/'>
       <img src={logo} alt="Meow Market Logo" className="logo-img" />
+      </a>
+      <a href='/'>
       <h1>
           Meow Market
       </h1>
+      </a>
       </div>
       <nav>
         {showNavigation()}
