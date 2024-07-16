@@ -33,8 +33,6 @@ function Signup(props) {
 
   return (
     <div className="container">
-      <Link to="/login" className='goToLogin'>← Login</Link>
-
       <h2 className='signupTitle'>Signup</h2>
       <form onSubmit={handleFormSubmit} className=' signupForm'>
         <div className="">
@@ -60,7 +58,7 @@ function Signup(props) {
         <div className="">
           <label htmlFor="email">Email:</label>
           <input
-            placeholder="youremail@test.com"
+            placeholder="Email"
             name="email"
             type="email"
             id="email"
@@ -81,6 +79,9 @@ function Signup(props) {
           <button type="submit">Submit</button>
         </div>
       </form>
+      <div className='signupButtonContainer'>
+        <button><Link to="/login" className='goToLogin'>← Login</Link></button>
+      </div>
     </div>
   );
 }
