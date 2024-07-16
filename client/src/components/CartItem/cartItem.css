@@ -27,11 +27,14 @@
   
   /* Position the shopping cart on top right */
   .cart-item {
-    position: absolute;
+    width: 60%;
+    position: flex;
     top: 20px;
     right: 20px;
     background-color: #fff; /* Optional: Add background color */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add shadow effect */
     padding: 10px;
   }
-  
+   .cartQty{
+    width: 50px;
+   }

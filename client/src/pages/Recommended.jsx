@@ -1,13 +1,10 @@
-import ProductList from "../components/ProductList.jsx/index";
-import { Link } from "react-router-dom";
-
-import Cart from "../components/Cart/index";
-
 import React, { useState } from 'react';
 import { useLazyQuery, gql } from '@apollo/client';
 import { useStoreContext } from '../utils/GlobalState';
-import { ADD_TO_CART } from '../utils/actions';
+import { ADD_TO_CART, UPDATE_CART_QUANTITY } from '../utils/actions';
 import { idbPromise } from '../utils/helpers';
+import { Link } from 'react-router-dom';
+import Cart from '../components/Cart';
 
 const GET_RECOMMENDED_PRODUCTS = gql`
   query getRecommendedProducts($breed: String!) {
@@ -27,8 +24,6 @@ const GET_RECOMMENDED_PRODUCTS = gql`
   }
 `;
 
-
-
 const Recommended = () => {
   const [catName, setCatName] = useState('');
   const [catAge, setCatAge] = useState('');
@@ -46,20 +41,33 @@ const Recommended = () => {
   };
 
   const addToCart = (product) => {
-    dispatch({
-      type: ADD_TO_CART,
-      product: { ...product, purchaseQuantity: 1 },
-    });
-    idbPromise('cart', 'put', { ...product, purchaseQuantity: 1 });
+    const itemInCart = state.cart.find((cartItem) => cartItem._id === product._id);
+
+    if (itemInCart) {
+      dispatch({
+        type: UPDATE_CART_QUANTITY,
+        _id: product._id,
+        purchaseQuantity: itemInCart.purchaseQuantity + 1,
+      });
+      idbPromise('cart', 'put', {
+        ...itemInCart,
+        purchaseQuantity: itemInCart.purchaseQuantity + 1,
+      });
+    } else {
+      dispatch({
+        type: ADD_TO_CART,
+        product: { ...product, purchaseQuantity: 1 },
+      });
+      idbPromise('cart', 'put', { ...product, purchaseQuantity: 1 });
+    }
   };
 
   return (
     <div>
-    <Cart />
-
-      <button ><Link to="/shop">
-              Shop All Products
-            </Link></button>
+      <Cart />
+      <button>
+        <Link to="/shop">Shop All Products</Link>
+      </button>
       <h2>Shop for Your Cat</h2>
       <form onSubmit={handleSubmit}>
         <div>
@@ -102,7 +110,6 @@ const Recommended = () => {
       {data && data.recommendedProducts && data.recommendedProducts.length > 0 ? (
         <div>
           <h1>Recommended Products for {catName}</h1>
-          
           <ul>
             {data.recommendedProducts.map((product) => (
               <li key={product._id}>
@@ -115,7 +122,6 @@ const Recommended = () => {
             ))}
           </ul>
         </div>
-        
       ) : (
         !loading && <p>No recommended products found.</p>
       )}
@@ -124,4 +130,3 @@ const Recommended = () => {
 };
 
 export default Recommended;
-
