@@ -21,7 +21,7 @@ import {
       case ADD_TO_CART:
         return {
           ...state,
-          cartOpen: true,
+          // cartOpen: true,
           cart: [...state.cart, action.product],
         };
   
@@ -34,7 +34,7 @@ import {
       case UPDATE_CART_QUANTITY:
         return {
           ...state,
-          cartOpen: true,
+          // cartOpen: true,
           cart: state.cart.map(product => {
             if (action._id === product._id) {
               product.purchaseQuantity = action.purchaseQuantity

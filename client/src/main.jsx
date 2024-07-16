@@ -13,6 +13,7 @@ import OrderHistory from './pages/OrderHistory';
 import Account from './pages/Account.jsx';
 import ProductList from './components/ProductList.jsx/index.jsx';
 import Cart from './components/Cart/index.jsx';
+import Recommended from './pages/Recommended.jsx';
 
 const router = createBrowserRouter([
   {
@@ -58,6 +59,10 @@ const router = createBrowserRouter([
             {
               path: '/cart',
               element: <Cart />
+            },
+            {
+              path: '/recommendations',
+              element: <Recommended />
             }
     // {
     //     path: '/success',
