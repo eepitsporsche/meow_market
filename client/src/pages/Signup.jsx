@@ -33,7 +33,7 @@ function Signup(props) {
 
   return (
     <div className="container">
-      <Link to="/login" className='goToLogin'>← Go to Login</Link>
+      <Link to="/login" className='goToLogin'>← Login</Link>
 
       <h2 className='signupTitle'>Signup</h2>
       <form onSubmit={handleFormSubmit} className=' signupForm'>
