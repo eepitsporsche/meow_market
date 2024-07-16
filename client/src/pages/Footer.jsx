@@ -19,7 +19,7 @@ const Footer = () => {
         </div>
         <div className="footer-section">
           <h3 className="footerTitle">Contact Us</h3>
-          <p>Email: meowMarket@gmail.com</p>
+          <p>Email: <a href="mailto:meowMarket@test.com">meowMarket@test.com</a></p>
           <p>Phone: +1-123-456-7890</p>
         </div>
         <div className="footer-section">
