@@ -32,14 +32,12 @@ function Login(props) {
 
   return (
     <div className="container">
-      <Link to="/signup" className='goToLogin'>← Signup</Link>
-
       <h2 className='loginTitle'>Login</h2>
       <form onSubmit={handleFormSubmit} className=' loginForm'>
         <div className="">
           <label htmlFor="email">Email address:</label>
           <input
-            placeholder="youremail@test.com"
+            placeholder="Email"
             name="email"
             type="email"
             id="email"
@@ -65,6 +63,9 @@ function Login(props) {
           <button type="submit">Submit</button>
         </div>
       </form>
+      <div className="loginButtonContainer">
+        <button><Link to="/signup" className='goToLogin'>← Signup</Link></button>
+      </div>
     </div>
   );
 }

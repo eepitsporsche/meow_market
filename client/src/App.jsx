@@ -1,4 +1,6 @@
 import { Outlet } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import {
   ApolloClient,
   InMemoryCache,
@@ -33,12 +35,22 @@ const client = new ApolloClient({
 });
 
 function App() {
+  const location = useLocation();
+
+  // Log the current location for debugging
+  useEffect(() => {
+    console.log('Current location:', location.pathname);
+  }, [location]);
+
+  // Determine if the current location is the home page
+  const isHomePage = location.pathname === '/' || location.pathname === '/home';
+
   return (
     <ApolloProvider client={client}>
       <StoreProvider>
         <Nav />
         <Outlet />
-        <Footer />
+        {isHomePage && <Footer />}
       </StoreProvider>
     </ApolloProvider>
   );

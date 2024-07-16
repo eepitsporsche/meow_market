@@ -1,5 +1,14 @@
 /* Footer.css */
 
+.footerContainer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  width: 100%;
+  position: relative;
+  bottom: 0;
+}
   .footerContainer {
     background-color: #333;
     color: #fff;
@@ -8,9 +17,10 @@
   .footer-content {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     max-width: 1200px;
-    margin: auto;
-    
+    margin: 0 auto;
+    min-height: 0 20px
   }
   footer p {
     font-size: 1rem;
@@ -30,6 +40,10 @@
   .footer-section h3 {
     margin-bottom: 10px;
   }
+
+  a {
+    color: white;
+  }
   
   .social-icons {
     display: flex;
@@ -48,43 +62,47 @@
     
   }
   
-  @media (max-width: 1200px) {
-    .footer-content {
-      padding: 0 10px;
-    }
-  }
-  
   @media (max-width: 768px) {
     .footer-content {
       flex-direction: column;
-      align-items: center;
       text-align: center;
+    }
+
+    footer ul li {
+      list-style-type: none;
+      margin-left: -23%;
     }
   
     .footer-section {
       margin-right: 0;
       margin-bottom: 20px;
     }
-  
+    
     .social-icons {
       justify-content: center;
     }
   }
   
+  /* Additional media query adjustments for very small screens */
   @media (max-width: 480px) {
     .footerTitle {
       font-size: 1.5rem;
     }
-  
+    
     .footer-section h3 {
       font-size: 1.2rem;
     }
   
-    footer p,
-    footer ul li {
+    footer p {
       font-size: 0.9rem;
     }
-  
+
+    footer ul li {
+      list-style-type: none;
+      margin-left: -23%;
+      font-size: 0.9rem;
+    }
+    
     .social-icon {
       font-size: 1.2rem;
     }
