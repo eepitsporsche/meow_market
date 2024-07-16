@@ -14,6 +14,7 @@ const typeDefs = gql`
     quantity: Int
     price: Float
     category: Category
+    breed: String
   }
 
   type Order {
@@ -42,6 +43,7 @@ const typeDefs = gql`
     user: User
     order(_id: ID!): Order
     checkout(products: [ID]!): Checkout
+    recommendedProducts(breed: String!): [Product]
   }
 
   type Mutation {

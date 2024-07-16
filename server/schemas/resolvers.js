@@ -5,6 +5,11 @@ const stripe = require('stripe')('');
 
 const resolvers = {
     Query: {
+        recommendedProducts: async (_, { breed }) => {
+            const products = await Product.find({ breed });
+            return products;
+          },
+          
         categories: async () => {
             return await Category.find();
         },
@@ -53,6 +58,7 @@ const resolvers = {
             throw new AuthenticationError('Not logged in');
         },
 
+        
         checkout: async (parent, args, context) => {
             const url = new URL(context.headers.referer).origin;
             const order = new Order({ products: args.products });
@@ -92,8 +98,12 @@ const resolvers = {
       
             return { session: session.id };
 
-        }
+        },
+
+       
+
     },
+
     Mutation: {
         addUser: async (parent, args) => {
             const user = await User.create(args);

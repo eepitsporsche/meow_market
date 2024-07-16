@@ -1,81 +1,96 @@
-import React, { useState, useEffect } from 'react';
-import CatForm from '../components/ShopPage/CatForm';
-import ProductList from '../components/ShopPage/ProductList';
-import Cart from '../components/ShopPage/Cart';
-import productsData from '../data/products';
-import Subscription from '../components/ShopPage/Subscription';
+// client/src/pages/Shop.jsx
+import React, { useState } from 'react';
+import { useLazyQuery, gql } from '@apollo/client';
 
-function Shop() {
-  const [catDetails, setCatDetails] = useState({});
-  const [cart, setCart] = useState([]);
-  const [subscription, setSubscription] = useState([]);
 
-  useEffect(() => {
-    const savedCart = JSON.parse(localStorage.getItem('cart'));
-    const savedSubscription = JSON.parse(localStorage.getItem('subscription'));
-    if (savedCart) setCart(savedCart);
-    if (savedSubscription) setSubscription(savedSubscription);
-  }, []);
 
-  useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(cart));
-    localStorage.setItem('subscription', JSON.stringify(subscription));
-  }, [cart, subscription]);
+const GET_RECOMMENDED_PRODUCTS = gql`
+  query getRecommendedProducts($breed: String!) {
+    recommendedProducts(breed: $breed) {
+      _id
+      name
+      description
+      image
+      price
+    }
+  }
+`;
 
-  const handleAddToCart = (product) => {
-    setCart(prevCart => {
-      const existingProduct = prevCart.find(item => item.id === product.id);
-      if (existingProduct) {
-        return prevCart.map(item =>
-          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
-        );
-      } else {
-        return [...prevCart, { ...product, quantity: 1 }];
-      }
-    });
-  };
+const Shop = () => {
+  const [catName, setCatName] = useState('');
+  const [catAge, setCatAge] = useState('');
+  const [catBreed, setCatBreed] = useState('');
+  const [getRecommendedProducts, { loading, data, error }] = useLazyQuery(GET_RECOMMENDED_PRODUCTS);
 
-  const handleRemoveFromCart = (productId) => {
-    setCart(prevCart => prevCart.filter(item => item.id !== productId));
-  };
-
-  const handleUpdateCartQuantity = (productId, quantity) => {
-    setCart(prevCart => prevCart.map(item =>
-      item.id === productId ? { ...item, quantity: quantity } : item
-    ));
-  };
-
-  const handleAddToSubscription = (product) => {
-    if (subscription.length < 3) {
-      setSubscription(prevSubscription => [...prevSubscription, { ...product, quantity: 1 }]);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (catBreed) {
+      getRecommendedProducts({ variables: { breed: catBreed } });
     } else {
-      alert('Only three products can be added to monthly subscription.');
+      alert('Please enter a breed to get recommendations');
     }
-  };
-
-  const handleRemoveFromSubscription = (productId) => {
-    // Find the index of the first occurrence of the product with given id
-    const indexToRemove = subscription.findIndex(item => item.id === productId);
-    if (indexToRemove !== -1) {
-      // Remove the product at the found index
-      setSubscription(prevSubscription => {
-        const newSubscription = [...prevSubscription];
-        newSubscription.splice(indexToRemove, 1);
-        return newSubscription;
-      });
-    }
+    console.log(catBreed)
   };
 
   return (
-    <div className="App">
-      <CatForm setCatDetails={setCatDetails} />
-      <ProductList catDetails={catDetails} handleAddToCart={handleAddToCart} handleAddToSubscription={handleAddToSubscription} />
-      <Cart cart={cart} handleRemoveFromCart={handleRemoveFromCart} handleUpdateCartQuantity={handleUpdateCartQuantity} />
-      <Subscription subscription={subscription} handleRemoveFromSubscription={handleRemoveFromSubscription} />
+    <div>
+      <h2>Shop for Your Cat</h2>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label>
+            Cat Name:
+            <input
+              type="text"
+              value={catName}
+              onChange={(e) => setCatName(e.target.value)}
+              required
+            />
+          </label>
+        </div>
+        <div>
+          <label>
+            Cat Age:
+            <input
+              type="number"
+              value={catAge}
+              onChange={(e) => setCatAge(e.target.value)}
+              required
+            />
+          </label>
+        </div>
+        <div>
+          <label>
+            Cat Breed:
+            <input
+              type="text"
+              value={catBreed}
+              onChange={(e) => setCatBreed(e.target.value)}
+              required
+            />
+          </label>
+        </div>
+        <button type="submit">Get Recommendations</button>
+      </form>
+      {loading && <p>Loading...</p>}
+      {error && <p>Error loading recommended products. Please try again.</p>}
+      {data && data.recommendedProducts && (
+        <div>
+          <h3>Recommended Products</h3>
+          <ul>
+            {data.recommendedProducts.map((product) => (
+              <li key={product._id}>
+                <img src={`/images/${product.image}`} alt={product.name} width="50" />
+                <p>{product.name}</p>
+                <p>{product.description}</p>
+                <p>${product.price}</p>
+                <button>Add to Cart</button>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 };
-
-
 
 export default Shop;
