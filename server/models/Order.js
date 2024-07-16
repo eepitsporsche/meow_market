@@ -12,13 +12,8 @@ const orderSchema = new Schema({
       type: Schema.Types.ObjectId,
       ref: "Product",
     },
-  ],
-  pets: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Pet",
-    },
-  ],
+  ]
+
 });
 
 const Order = mongoose.model("Order", orderSchema);

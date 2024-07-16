@@ -1,6 +1,7 @@
 // import ProductList from "../components/ProductList";
 // import CategoryMenu from "../components/CategoryMenu";
 import "./home.css";
+import Shop from "./Shop"
 import { Link } from "react-router-dom";
 
 const Home = () => {

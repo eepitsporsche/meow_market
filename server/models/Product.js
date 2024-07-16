@@ -3,9 +3,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const productSchema = new Schema({
-  breed: {
-    type: String
-  },
+
   name: {
     type: String,
     required: true,
