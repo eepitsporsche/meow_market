@@ -64,6 +64,11 @@
       align-items: center;
       text-align: center;
     }
+
+    footer ul li {
+      list-style-type: none;
+      margin-left: -23%;
+    }
   
     .footer-section {
       margin-right: 0;
@@ -84,8 +89,13 @@
       font-size: 1.2rem;
     }
   
-    footer p,
+    footer p {
+      font-size: 0.9rem;
+    }
+
     footer ul li {
+      list-style-type: none;
+      margin-left: -23%;
       font-size: 0.9rem;
     }
   
