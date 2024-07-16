@@ -18,6 +18,7 @@ db.once('open', async () => {
 
     const products = await Product.insertMany([
         {
+        breed: ['siamese', 'maine coon'],
         name: 'Blue Buffalo Tastefuls Ocean Fish & Tuna Entrée Pate Wet Cat Food - 4 Cans',
         description:
             'Treat your kitty to a whisker-licking flavor with BLUE Tastefuls Adult Cat Ocean Fish and Tuna Entrée Pate wet cat food.',

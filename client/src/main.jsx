@@ -11,6 +11,8 @@ import Signup from './pages/Signup';
 // import Account from './pages/Account';
 import OrderHistory from './pages/OrderHistory';
 import Account from './pages/Account.jsx';
+import ProductList from './components/ProductList.jsx/index.jsx';
+
 
 const router = createBrowserRouter([
   {
@@ -48,7 +50,11 @@ const router = createBrowserRouter([
         {
           path: '/subscription',
           element: <Subscription />
-        }
+        },
+        , {
+              path: '/products',
+              element: <ProductList />
+            }
     // {
     //     path: '/success',
     //     element: <Success />
