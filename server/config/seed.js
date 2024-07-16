@@ -128,7 +128,7 @@ db.once("open", async () => {
   ]);
 
   console.log("products seeded");
-  //test seed
+  //test seed 123
   await User.deleteMany();
 
   await User.create({
