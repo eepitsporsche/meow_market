@@ -14,3 +14,7 @@ a {
     color: var(--text_color);
     text-decoration: none;
 }
+
+a:hover {
+    color: rgb(188, 167, 224);
+}
