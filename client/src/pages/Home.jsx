@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <div>
       <div>
-        <h1 className="homeTitle">Where Every Purr-chase is Purr-fect!!</h1>
+        <h1 className="homeTitle">Where Every Purchase is Purr-fect!!</h1>
       </div>
       <div className = "homeContainer1">
         <h2>Everything Your Cat Needs, All in One Place</h2>
