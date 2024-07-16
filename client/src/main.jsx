@@ -12,7 +12,7 @@ import Signup from './pages/Signup';
 import OrderHistory from './pages/OrderHistory';
 import Account from './pages/Account.jsx';
 import ProductList from './components/ProductList.jsx/index.jsx';
-
+import Cart from './components/Cart/index.jsx';
 
 const router = createBrowserRouter([
   {
@@ -51,9 +51,13 @@ const router = createBrowserRouter([
           path: '/subscription',
           element: <Subscription />
         },
-        , {
+         {
               path: '/products',
               element: <ProductList />
+            },
+            {
+              path: '/cart',
+              element: <Cart />
             }
     // {
     //     path: '/success',
