@@ -17,7 +17,7 @@ This web-app is built using the MERN stack to allow users to create a personal a
 
 
 ## Installation
-Access the app on [Heroku]().
+Access the app on [Heroku](https://group-fivemeowmarket-c7eee0758978.herokuapp.com/).
 
 (OR)
 
@@ -35,7 +35,7 @@ On the [Meow Market]() webpage, users may browse categories to find pet supply i
 
 The cart contents can be accessed by clicking the 'Cart' link at the upper right of the page. Once on the 'Cart' page, a user may remove items from the cart by clicking the 'Trash' icon found below the item.
 
-<p align="center"><img src="client/public/images/" alt="Meow Market Homepage"></p>
+<p align="center"><img src="client/public/images/meow_market_demo.gif" alt="Meow Market Homepage"></p>
 
 
 ## Contributors
