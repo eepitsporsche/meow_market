@@ -66,7 +66,7 @@ function Account(props) {
           <p><strong>Name:</strong> {formState.firstName} {formState.lastName}</p>
           <p><strong>Email:</strong> {formState.email}</p>
           {isSubscribed ? (
-        <p>You are subscribed to our Meow Market.</p>
+        <p>You are subscribed to Meow Market.</p>
       ) : (
         <p>You are not subscribed to Meow Market.</p>
       )}
