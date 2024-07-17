@@ -6,7 +6,7 @@
     font-style: normal;
 }
 
-.cartContainer {
+/* .cartContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -18,9 +18,9 @@
     padding: 3%;
     margin-top: 3%;
     margin-bottom: 30px;
-}
+} */
 
-.cart-link {
+/* .cart-link {
     cursor: pointer;
 }
 
@@ -37,4 +37,4 @@
 
 .cartTotal {
     float: right;
-}
+} */
