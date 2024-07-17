@@ -1,20 +1,20 @@
-const db = require('./connection');
-const { User, Product, Category } = require('../models');
+const db = require("./connection");
+const { User, Product, Category } = require("../models");
 
-db.once('open', async () => {
-    await Category.deleteMany();
+db.once("open", async () => {
+  await Category.deleteMany();
 
-    const categories = await Category.insertMany([
-        { name: 'Food' },
-        { name: 'Litter and Accessories' },
-        { name: 'Treats' },
-        { name: 'Toys' },
-        { name: 'Furniture' }
-    ]);
+  const categories = await Category.insertMany([
+    { name: "Food" },
+    { name: "Litter and Accessories" },
+    { name: "Treats" },
+    { name: "Toys" },
+    { name: "Furniture" },
+  ]);
 
-    console.log('categories seeded');
+  console.log("categories seeded");
 
-    await Product.deleteMany();
+  await Product.deleteMany();
 
     const products = await Product.insertMany([
         {
@@ -204,30 +204,30 @@ db.once('open', async () => {
         }
     ]);
 
-    console.log('products seeded');
+  console.log("products seeded");
 
-    await User.deleteMany();
+  await User.deleteMany();
 
-    await User.create({
-        firstName: 'John',
-        lastName: 'Smith',
-        email: 'john@test.com',
-        password: 'password12345',
-        orders: [
-        {
-            products: [products[0]._id, products[0]._id, products[1]._id]
-        }
-        ]
-    });
+  await User.create({
+    firstName: "John",
+    lastName: "Smith",
+    email: "john@test.com",
+    password: "password12345",
+    orders: [
+      {
+        products: [products[0]._id, products[0]._id, products[1]._id],
+      },
+    ],
+  });
 
-    await User.create({
-        firstName: 'Jane',
-        lastName: 'Doe',
-        email: 'jane@test.com',
-        password: 'password12345'
-    });
+  await User.create({
+    firstName: "Jane",
+    lastName: "Doe",
+    email: "jane@test.com",
+    password: "password12345",
+  });
 
-    console.log('users seeded');
+  console.log("users seeded");
 
-    process.exit();
+  process.exit();
 });
