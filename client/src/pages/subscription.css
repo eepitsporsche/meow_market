@@ -1,5 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Pompiere&display=swap');
 
-  /* Container styles */
+* {
+    font-family: "Pompiere", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Container styles */
   .subscription-container {
     color: #333;
     display: flex;
@@ -14,6 +21,7 @@
     width: 90%;
     max-width: 800px;
     text-align: center;
+    overflow: auto;
   }
   
   /* Title styles */
@@ -44,7 +52,7 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 300px;
-    text-align: left;
+    text-align: center;
     transition: transform 0.3s ease;
   }
   .subscription-container ul li:hover {
