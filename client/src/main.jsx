@@ -15,7 +15,9 @@ import ProductList from './components/ProductList.jsx/index.jsx';
 import Cart from './components/Cart/index.jsx';
 import Recommended from './pages/Recommended.jsx';
 import CartPage from './components/Cart/CartPage.jsx';
-import Detail from './pages/Detail.jsx'
+import Detail from './pages/Detail.jsx';
+import Success from './pages/Success';
+
 
 const router = createBrowserRouter([
   {
@@ -69,11 +71,11 @@ const router = createBrowserRouter([
             {
               path: '/products/:id',
               element: <Detail />
-            }
-    // {
-    //     path: '/success',
-    //     element: <Success />
-    //   }, {
+            },
+    {
+        path: '/success',
+        element: <Success />
+      }
     //     path: '/orderHistory',
     //     element: <OrderHistory />
       // }, {
