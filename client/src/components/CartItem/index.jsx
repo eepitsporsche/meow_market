@@ -56,6 +56,7 @@ const CartItem = ({ item }) => {
           />
           &nbsp;&nbsp;
           <span
+            className="trashIcon"
             role="img"
             aria-label="trash"
             onClick={() => removeFromCart(item)}

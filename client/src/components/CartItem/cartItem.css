@@ -24,6 +24,10 @@
     display: flex;
     flex-direction: column;
   }
+
+  .trashIcon:hover {
+    cursor: pointer;
+  }
   
   /* Position the shopping cart on top right */
   .cart-item {
