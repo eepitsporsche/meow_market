@@ -3,10 +3,13 @@ import { pluralize } from "../../utils/helpers"
 import { useStoreContext } from "../../utils/GlobalState";
 import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
+import React, { useState, useRef } from 'react';
 import "./products.css";
 
 function ProductItem(item) {
   const [state, dispatch] = useStoreContext();
+  const [cartMessage, setCartMessage] = useState('');
+  const timerId = useRef(null);
 
   const {
     image,
@@ -30,6 +33,16 @@ function ProductItem(item) {
         ...itemInCart,
         purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
       });
+
+      setCartMessage('Item added to cart!');
+      setTimeout(() => {
+        setCartMessage('');
+      }, 2000); // Clear the message after 2 seconds
+      return () => {
+          //Clear the timeout
+          clearTimeout(timerId.current);
+      };
+
     } else {
       dispatch({
         type: ADD_TO_CART,
@@ -38,7 +51,8 @@ function ProductItem(item) {
       idbPromise('cart', 'put', { ...item, purchaseQuantity: 1 });
     }
   }
-
+  
+  
   return (
     <div className="card px-1 py-1 productCard">
       <Link to={`/products/${_id}`}>
@@ -52,7 +66,8 @@ function ProductItem(item) {
         <div>{quantity} {pluralize("item", quantity)} in stock</div>
         <span>${price}</span>
       </div>
-      <button className="addtoCartBtn"onClick={addToCart}>Add to cart</button>
+      <button className="addToCartButton" onClick={addToCart}>Add to cart</button>
+      {cartMessage && <p>{cartMessage}</p>}
     </div>
   );
 }

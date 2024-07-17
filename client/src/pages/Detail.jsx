@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
@@ -16,6 +16,9 @@ import { idbPromise } from '../utils/helpers';
 
 function Detail() {
   const [state, dispatch] = useStoreContext();
+  const [cartMessageAdd, setCartMessageAdd] = useState('');
+  const [cartMessageRemove, setCartMessageRemove] = useState('');
+  const timerId = useRef(null);
   const { id } = useParams();
 
   const [currentProduct, setCurrentProduct] = useState({});
@@ -63,6 +66,16 @@ function Detail() {
         ...itemInCart,
         purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
       });
+
+      setCartMessageAdd('Item added to cart!');
+      setTimeout(() => {
+        setCartMessageAdd('');
+      }, 2000); // Clear the message after 2 seconds
+      return () => {
+        //Clear the timeout
+        clearTimeout(timerId.current);
+    };
+
     } else {
       dispatch({
         type: ADD_TO_CART,
@@ -79,6 +92,15 @@ function Detail() {
     });
 
     idbPromise('cart', 'delete', { ...currentProduct });
+    
+    setCartMessageRemove('Item removed from cart!');
+    setTimeout(() => {
+      setCartMessageRemove('');
+    }, 2000); // Clear the message after 2 seconds
+    return () => {
+      //Clear the timeout
+      clearTimeout(timerId.current);
+    };
   };
 
   return (
@@ -100,6 +122,7 @@ function Detail() {
             <strong>Price:</strong>${currentProduct.price}{' '}
 
             <button onClick={addToCart}>Add to Cart</button>
+            {cartMessageAdd && <p>{cartMessageAdd}</p>}
 
             <button
               disabled={!cart.find((p) => p._id === currentProduct._id)}
@@ -107,6 +130,7 @@ function Detail() {
             >
               Remove from Cart
             </button>
+            {cartMessageRemove && <p>{cartMessageRemove}</p>}
           </p>
         </div>
       ) : null}
