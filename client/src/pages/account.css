@@ -9,7 +9,7 @@
 /* Container for the entire account section */
 .account-container {
     padding: 20px;
-    max-width: 600px;
+    max-width: 400px;
     margin: 100px auto;
     background-color: #f9f9f9;
     border: 1px solid #ccc;
@@ -32,7 +32,7 @@
     margin-bottom: 1.5rem;
   }
   p{
-    font-size: 30px;
+    font-size: 25px;
     margin-bottom: 1rem;
   }
   
@@ -40,6 +40,8 @@
   .edit-form {
     display: flex;
     flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    justify-content: center; 
   }
   
   /* Label styling */
@@ -89,8 +91,27 @@
   /* Responsive adjustments */
   @media (max-width: 768px) {
     .account-container {
-      width: 100%;
+      width:80%;
       padding: 10px;
+      margin: 50px auto;
+    }
+  
+    .account-container h1 {
+      font-size: 2rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .account-container {
+      padding: 15px;
+      margin: 30px auto;
+    }
+  
+    .account-container h1 {
+      font-size: 1.8rem;
+    }
+    p{
+      font-size: 20px;
     }
   }
   

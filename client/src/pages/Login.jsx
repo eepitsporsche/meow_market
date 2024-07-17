@@ -62,7 +62,7 @@ function Login(props) {
           </div>
         ) : null}
         <div className="">
-          <button type="submit">Submit</button>
+          <button className='submitBtn' type="submit">Login</button>
         </div>
       </form>
       <div className="loginButtonContainer">

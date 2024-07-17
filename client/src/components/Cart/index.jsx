@@ -1,6 +1,7 @@
 import React from 'react';
 import { useStoreContext } from '../../utils/GlobalState';
 import { useNavigate } from 'react-router-dom';
+import './cartIcon.css';
 
 const Cart = () => {
   const [state] = useStoreContext();
@@ -19,9 +20,9 @@ const Cart = () => {
   }
 
   return (
-    <div className='cart-icon' onClick={handleCartClick}>
-      <span role="img" aria-label="cart">
-        Cart 🛒 ({getTotalQuantity()})
+    <div className='cartContainer' onClick={handleCartClick}>
+      <span role="img" aria-label="cart" className="fas fa-shopping-cart">
+       ({getTotalQuantity()})
       </span>
     </div>
   );

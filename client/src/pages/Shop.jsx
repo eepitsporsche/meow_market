@@ -8,7 +8,7 @@ const Shop = () => {
   return (
     <div className="container">
       <CategoryMenu />
-    <button className="recommendationsButton"><Link to="/recommendations">Not sure what's right for your cat? Try our Recommendations!!!</Link></button>
+    <button className="buttonNotSure"><Link to="/recommendations">Not sure what's right for your cat? Try our Recommendations!!!</Link></button>
     <Cart />
 
       <ProductList />
