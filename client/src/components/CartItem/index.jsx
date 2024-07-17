@@ -54,6 +54,7 @@ const CartItem = ({ item }) => {
             value={item.purchaseQuantity}
             onChange={onChange}
           />
+          &nbsp;&nbsp;
           <span
             role="img"
             aria-label="trash"
