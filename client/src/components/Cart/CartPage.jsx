@@ -7,6 +7,7 @@ import CartItem from '../CartItem/index';
 import Auth from '../../utils/auth';
 import { useStoreContext } from '../../utils/GlobalState';
 import { ADD_MULTIPLE_TO_CART } from '../../utils/actions';
+import './cart.css';
 
 const stripePromise = loadStripe('pk_test_51PdNpL2LQJGxym29iOD2XSI21vDGDasH8m6wVbZtvJCs2gBnJj3uflIbhvPsm5zmkQlTo7P9QDce59RGRwvMyl2X00UIKIpsMM');
 const CartPage = () => {
@@ -57,32 +58,34 @@ const CartPage = () => {
   }
 
   return (
-    <div>
-      <h2>Shopping Cart</h2>
-      {state.cart.length ? (
+    <div className='cartContainer'>
         <div>
-          {state.cart.map((item) => (
-            <CartItem key={item._id} item={item} />
-          ))}
-
+        <h2>Shopping Cart</h2>
+        {state.cart.length ? (
           <div>
-            <strong>Total: ${calculateTotal()}</strong>
+            {state.cart.map((item) => (
+              <CartItem key={item._id} item={item} />
+            ))}
 
-            {Auth.loggedIn() ? (
-              <button onClick={submitCheckout}>Checkout</button>
-            ) : (
-              <span>(log in to check out)</span>
-            )}
+            <div className='cartTotal'>
+              <strong>Total: ${calculateTotal()}</strong>
+              &nbsp;&nbsp;
+              {Auth.loggedIn() ? (
+                <button onClick={submitCheckout}>Checkout</button>
+              ) : (
+                <span>(log in to check out)</span>
+              )}
+            </div>
           </div>
-        </div>
-      ) : (
-        <h3>
-          <span role="img" aria-label="shocked">
-            😱
-          </span>
-          You haven't added anything to your cart yet!
-        </h3>
-      )}
+        ) : (
+          <h3>
+            <span role="img" aria-label="shocked">
+              😱
+            </span>
+            You haven't added anything to your cart yet!
+          </h3>
+        )}
+      </div>
     </div>
   );
 };
