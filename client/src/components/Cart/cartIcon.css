@@ -20,32 +20,32 @@
     background-color: #a3f598a4;
 }
   
-.cartContainer span {
+.cart-item-actions span {
     font-size: 1.5rem;
 }
   
 @media (max-width: 768px) {
-    .cartContainer {
+    .cart-item-actions {
       top: 180px; /* Adjust this value based on your header height */
       right: 15px;
       width: 50px;
       height: 50px;
     }
   
-    .cartContainer span {
+    .cart-item-actions span {
       font-size: 1.2rem;
     }
   }
   
   @media (max-width: 480px) {
-    .cartContainer {
+    .cart-item-actions {
       top: 180px; /* Adjust this value based on your header height */
       right: 10px;
       width: 40px;
       height: 40px;
     }
   
-    .cartContainer span {
+    .cart-item-actions span {
       font-size: 1rem;
     }
   }
