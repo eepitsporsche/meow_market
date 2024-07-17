@@ -28,6 +28,77 @@ db.once('open', async () => {
         quantity: 500
         },
         {
+            breed: ['bengal'],
+            name: 'Royal Canin Bengal Breed Adult Dry Cat Food, 7 lb bag',
+            description:
+                'Royal Canin Bengal Adult Cat Food is formulated to meet the nutritional needs of this purebred cat 1 year and older',
+            image: 'bengalfood.png',
+            category: categories[0]._id,
+            price: 45.99,
+            quantity: 500
+            },
+        {
+            breed: ['maine coon'],
+            name: 'Royal Canin Maine Coon Breed Adult Dry Cat Food, 6 lb bag',
+            description:
+                'Royal Canin Maine Coon Adult Cat Food is formulated to meet the nutritional needs of purebred Maine Coon cats 15 months and older',
+            image: 'mainecoonfood.png',
+            category: categories[0]._id,
+            price: 45.99,
+            quantity: 500
+            },
+        {
+            breed: ['persian'],
+            name: 'Royal Canin Persian Breed Adult Dry Cat Food, 7 lb bag',
+            description:
+                'Breed-specific nutrients promote skin and coat health, helping to keep a Persian’s long hair soft and shiny',
+            image: 'persianfood.png',
+            category: categories[0]._id,
+            price: 45.99,
+            quantity: 500
+            },
+        {
+            breed: ['persian'],
+            name: 'Royal Canin Persian Breed Adult Dry Cat Food, 7 lb bag',
+            description:
+                'Breed-specific nutrients promote skin and coat health, helping to keep a Persian’s long hair soft and shiny',
+            image: 'persianfood.png',
+            category: categories[0]._id,
+            price: 45.99,
+            quantity: 500
+            },
+        {
+            breed: ['ragdoll'],
+            name: 'Royal Canin Ragdoll Breed Adult Dry Cat Food, 7 lb bag',
+            description:
+                'Royal Canin Ragdoll Adult Cat Food is formulated to meet the nutritional needs of purebred Ragdoll cats 1 year and older',
+            image: 'ragdollfood.png',
+            category: categories[0]._id,
+            price: 45.99,
+            quantity: 500
+            },
+        {
+            breed: ['siamese'],
+            name: 'Royal Canin Siamese Breed Adult Dry Cat Food, 6 lb bag',
+            description:
+                'FORMULATED FOR PUREBRED SIAMESE CATS: Royal Canin Siamese Adult Cat Food is formulated to meet the nutritional needs of purebred Siamese cats 1 year and older',
+            image: 'siamesefood.png',
+            category: categories[0]._id,
+            price: 45.99,
+            quantity: 500
+            },
+        {
+            breed: ['persian'],
+            name: 'Royal Canin Persian Breed Dry Kitten Food, 3 lb.',
+            description:
+                'Royal Canin Persian breed-specific dry kitten food is formulated to meet the nutritional needs of a growing kitten up to 12 months old',
+            image: 'persianpink.png',
+            category: categories[0]._id,
+            price: 35.99,
+            quantity: 500
+            },
+        {
+        breed: ['persian', 'ragdoll'],
         name: 'Reveal Natural Grain-Free Variety Fish & Chicken in Broth Flavored Wet Cat Food - 12 Cans',
         description:
             'Each dish features delicious, high-quality ingredients without any artificial preservatives, colors, or flavors, providing a wholesome dining experience.',
@@ -37,6 +108,7 @@ db.once('open', async () => {
         quantity: 500
         },
         {
+        breed: ['persian', 'ragdoll', 'bengal'],
         name: 'Iams ProActive Health Healthy Adult Original with Chicken Dry Cat Food - 16lb Bag',
         description:
             'Real chicken is the very first ingredient in this kibble, plus prebiotics to support digestive health and omega-6 and omega-3 fatty acids to support healthy skin and coat.',
@@ -64,6 +136,8 @@ db.once('open', async () => {
         quantity: 50
         },
         {
+        breed: ['siamese', 'maine coon', 'bengal'],
+
         name: 'Greenies Feline Oven Roasted Chicken Flavor Adult Dental Cat Treats - 4.6oz Bag',
         category: categories[2]._id,
         description:
@@ -73,6 +147,8 @@ db.once('open', async () => {
         quantity: 30
         },
         {
+        breed: ['siamese', 'maine coon', 'persian'],
+
         name: 'Meow Mix Irresistibles Soft Salmon Cat Treats - 3oz Bag',
         category: categories[2]._id,
         description:
