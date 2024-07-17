@@ -1,44 +1,44 @@
 /* styles.css */
 form{
-  width: 300px;
+width: 300px;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Pompiere&display=swap');
 
 * {
-    font-family: "Pompiere", sans-serif;
-    font-weight: 400;
-    font-style: normal;
+  font-family: "Pompiere", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .category-container {
-    display: inline-block;
-    flex-direction: row;
-    align-items: center;
-    margin-top:-80px;
-  }
-  
-  .containerTitle{
-    font-size: 3.5rem;
-    margin-bottom: 10px;
-    text-align: center;
-  }
-  
-  .category-container button {
-    margin: 5px;
-    padding: 10px 20px;
-    font-size: 1rem;
-    background-color: #4c01a1;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .category-container button:hover {
-    background-color: #3302a5;
-  }
+  display: inline-block;
+  flex-direction: row;
+  align-items: center;
+  margin-top:-80px;
+}
+
+.containerTitle{
+  font-size: 3.5rem;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.category-container button, .recommendationsButton {
+  margin: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #4c01a1;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.category-container button:hover {
+  background-color: #3302a5;
+}
 
 .productTitle{
     text-align: center;
@@ -48,73 +48,73 @@ form{
 }
 
 .flex-row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
-  .flex-row .product-item {
-    flex: 0 0 calc(25% - 20px); /* Adjust width as per your layout needs */
-    margin: 10px;
-    text-align: center;
-  }
-  .card{
-    width:300px;
-    height: 400px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Align items at the start and end of a container */
-    text-align: center;
-    padding: 10px;
-    margin: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-  
-  img {
-    width: 200px; 
-    height: 200px;
-    justify-content: center;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow effect */
-  } 
-  .product-item h3 {
-    margin-top: 10px;
-    font-size: 1.2rem;
+
+.flex-row .product-item {
+  flex: 0 0 calc(25% - 20px); /* Adjust width as per your layout needs */
+  margin: 10px;
+  text-align: center;
+}
+.card{
+  width:300px;
+  height: 400px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Align items at the start and end of a container */
+  text-align: center;
+  padding: 10px;
+  margin: 10px;
+}
+
+img {
+  width: 200px; 
+  height: 200px;
+  justify-content: center;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow effect */
+} 
+.product-item h3 {
+  margin-top: 10px;
+  font-size: 1.2rem;
+}
+
+.productContainer p {
+  font-size: 1.1rem;
+  color: #666;
+}
+
+@media (max-width: 1200px) {
+  .flex-row .product-item {
+    flex: 0 0 calc(33.33% - 20px); /* Adjust for three columns on medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .flex-row .product-item {
+    flex: 0 0 calc(50% - 20px); /* Adjust for two columns on smaller screens */
   }
 
-  .productContainer p {
-    font-size: 1.1rem;
-    color: #666;
+  .category-container {
+    margin-top: 0; /* Reset margin-top for smaller screens */
   }
-  
-  @media (max-width: 1200px) {
-    .flex-row .product-item {
-      flex: 0 0 calc(33.33% - 20px); /* Adjust for three columns on medium screens */
-    }
+
+  .containerTitle {
+    font-size: 2.5rem; /* Adjust title font size */
   }
-  
-  @media (max-width: 768px) {
-    .flex-row .product-item {
-      flex: 0 0 calc(50% - 20px); /* Adjust for two columns on smaller screens */
-    }
-  
-    .category-container {
-      margin-top: 0; /* Reset margin-top for smaller screens */
-    }
-  
-    .containerTitle {
-      font-size: 2.5rem; /* Adjust title font size */
-    }
+}
+
+@media (max-width: 480px) {
+  .flex-row .product-item {
+    flex: 0 0 calc(100% - 20px); /* Full width for single column on mobile */
   }
-  
-  @media (max-width: 480px) {
-    .flex-row .product-item {
-      flex: 0 0 calc(100% - 20px); /* Full width for single column on mobile */
-    }
-  
-    .card {
-      width: calc(100% - 20px);
-      margin: 10px auto; /* Center cards on smaller screens */
-    }
+
+  .card {
+    width: calc(100% - 20px);
+    margin: 10px auto; /* Center cards on smaller screens */
   }
+}
