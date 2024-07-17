@@ -1,9 +1,7 @@
 /* styles.css */
-<<<<<<< Updated upstream
 form{
   width: 300px;
 }
-=======
 
 @import url('https://fonts.googleapis.com/css2?family=Pompiere&display=swap');
 
@@ -13,7 +11,6 @@ form{
     font-style: normal;
 }
 
->>>>>>> Stashed changes
 .category-container {
     display: inline-block;
     flex-direction: row;
