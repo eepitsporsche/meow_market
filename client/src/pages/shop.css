@@ -95,7 +95,7 @@ form{
     }
   
     .containerTitle {
-      font-size: 2.5rem; /* Adjust title font size */
+      font-size: 2rem; /* Adjust title font size */
     }
   }
   
@@ -103,9 +103,28 @@ form{
     .flex-row .product-item {
       flex: 0 0 calc(100% - 20px); /* Full width for single column on mobile */
     }
-  
-    .card {
-      width: calc(100% - 20px);
-      margin: 10px auto; /* Center cards on smaller screens */
+    .productTitle{
+      font-size: 1.5rem;
+    }
+    .buttonNotSure{
+      font-size: .7rem;
+    }
+    .category-container button{
+      font-size: .7rem;
+    }
+    .productContainer p{
+      font-size: .7rem;
+    }
+    .addtoCartBtn{
+        font-size: .7rem;
+    }
+    img{
+      width:180px;
+      height:170px;
+    }
+    .card{
+      width:250px;
+      height: 300px;
     }
   }
+  

@@ -75,4 +75,24 @@
       opacity: 1;
     }
   }
+
+  @media (max-width: 768px) {
+    .signupForm, .loginForm {
+      width: 74%; /* Adjust width for smaller screens */
+      max-width: 100%; /* Allow full width on smaller screens */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .signupTitle, .loginTitle {
+      font-size: 2rem;
+      margin-top: -20px; /* Adjust title font size for smaller screens */
+    }
+    .submitBtn{
+      font-size: 1rem;
+    }
+    .goToLogin{
+      font-size: 1rem;
+    }
+  }
   

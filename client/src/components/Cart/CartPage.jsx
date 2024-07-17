@@ -3,10 +3,11 @@ import { loadStripe } from '@stripe/stripe-js';
 import { useLazyQuery } from '@apollo/client';
 import { QUERY_CHECKOUT } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
-import CartItem from '../CartItem/index';
+import CartItem from '../CartItem';
 import Auth from '../../utils/auth';
 import { useStoreContext } from '../../utils/GlobalState';
 import { ADD_MULTIPLE_TO_CART } from '../../utils/actions';
+import './shoppingCart.css';
 
 const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
@@ -50,33 +51,53 @@ const CartPage = () => {
   }
 
   return (
+    <div className= "cart-container">
+  <h2>Shopping Cart</h2>
+  {state.cart.length ? (
     <div>
-      <h2>Shopping Cart</h2>
-      {state.cart.length ? (
-        <div>
-          {state.cart.map((item) => (
-            <CartItem key={item._id} item={item} />
-          ))}
-
-          <div>
-            <strong>Total: ${calculateTotal()}</strong>
-
-            {Auth.loggedIn() ? (
-              <button onClick={submitCheckout}>Checkout</button>
-            ) : (
-              <span>(log in to check out)</span>
-            )}
+      {state.cart.map((item) => (
+        <div className="cart-item" key={item._id}>
+          <img src={`/images/${item.image}`} alt={item.name} />
+          <div className="cart-item-details">
+            <div className="cart-item-name">{item.name}</div>
+            <div className="cart-item-price">${item.price}</div>
+          </div>
+          <div className="cart-item-actions">
+            <input 
+              type="number"
+              placeholder="1"
+              value={item.purchaseQuantity}
+              onChange={(e) => handleChange(e, item._id)}
+            />
+            <span role="img" aria-label="trash" className="remove-item" onClick={() => removeFromCart(item)}>
+            <i className="fas fa-trash-alt"></i>
+            </span>
           </div>
         </div>
-      ) : (
-        <h3>
-          <span role="img" aria-label="shocked">
-            😱
-          </span>
-          You haven't added anything to your cart yet!
-        </h3>
-      )}
+      ))}
+
+      <div className="cart-total">
+        <strong>Total: ${calculateTotal()}</strong>
+      </div>
+
+      <div className="cart-checkout">
+        {Auth.loggedIn() ? (
+          <button onClick={submitCheckout}>Checkout</button>
+        ) : (
+          <span>(log in to check out)</span>
+        )}
+      </div>
     </div>
+  ) : (
+    <div className="cart-empty">
+      <span role="img" aria-label="shocked">
+        😱
+      </span>
+      You haven't added anything to your cart yet!
+    </div>
+  )}
+</div>
+
   );
 };
 
