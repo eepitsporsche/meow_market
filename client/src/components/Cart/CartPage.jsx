@@ -8,8 +8,7 @@ import Auth from '../../utils/auth';
 import { useStoreContext } from '../../utils/GlobalState';
 import { ADD_MULTIPLE_TO_CART } from '../../utils/actions';
 
-const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
-
+const stripePromise = loadStripe('pk_test_51PdNpL2LQJGxym29iOD2XSI21vDGDasH8m6wVbZtvJCs2gBnJj3uflIbhvPsm5zmkQlTo7P9QDce59RGRwvMyl2X00UIKIpsMM');
 const CartPage = () => {
   const [state, dispatch] = useStoreContext();
   const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
@@ -44,7 +43,15 @@ const CartPage = () => {
   function submitCheckout() {
     getCheckout({
       variables: {
-        products: [...state.cart],
+        products: state.cart.map(item => ({
+          _id: item._id,
+          purchaseQuantity: item.purchaseQuantity,
+          name: item.name,
+          description: item.description,
+          price: item.price,
+          quantity: item.quantity,
+          image: item.image
+        })),
       },
     });
   }
