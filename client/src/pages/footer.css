@@ -80,6 +80,7 @@ a {
   .footer-content {
     flex-direction: column;
     text-align: center;
+    align-items: center;
   }
 
   footer ul li {
@@ -99,6 +100,10 @@ a {
 
 /* Additional media query adjustments for very small screens */
 @media (max-width: 480px) {
+  .footer-content {
+    align-items: flex-start;
+  }
+
   .footerTitle {
     font-size: 1.5rem;
   }
