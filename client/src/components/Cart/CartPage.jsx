@@ -65,7 +65,10 @@ const CartPage = () => {
   {state.cart.length ? (
     <div>
       {state.cart.map((item) => (
-        <div className="cart-item" key={item._id}>
+        <CartItem key={item._id} item={item} />
+        ))}
+
+        {/* <div className="cart-item">
           <img src={`/images/${item.image}`} alt={item.name} />
           <div className="cart-item-details">
             <div className="cart-item-name">{item.name}</div>
@@ -83,7 +86,7 @@ const CartPage = () => {
             </span>
           </div>
         </div>
-      ))}
+      } */}
 
       <div className="cart-total">
         <strong>Total: ${calculateTotal()}</strong>

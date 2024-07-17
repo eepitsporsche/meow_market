@@ -24,10 +24,16 @@
     display: flex;
     flex-direction: column;
   }
+  .trashIcon {
+    cursor: pointer;
+    color: #f44336;
+    font-size: 1.5rem;
+  }
 
   .trashIcon:hover {
     cursor: pointer;
   }
+ 
   
   /* Position the shopping cart on top right */
   .cart-item {
