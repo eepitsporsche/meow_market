@@ -1,5 +1,7 @@
 /* styles.css */
-
+form{
+  width: 300px;
+}
 .category-container {
     display: inline-block;
     flex-direction: row;

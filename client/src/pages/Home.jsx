@@ -22,7 +22,7 @@ const Home = () => {
       <div className= "homeContainer2">
         <h2>Exclusive Deals Await You!</h2>
         <p>Subscribe now to save more.</p>
-        <button>Subscribe</button>
+      <button><Link to="/subscription">Subscribe</Link></button>
       </div>
 
       {/*

@@ -5,6 +5,10 @@ const stripe = require('stripe')('');
 
 const resolvers = {
     Query: {
+      recommendedProducts: async (parent, { breed }) => {
+        return await Product.find({ breed: breed });
+      },
+
       categories: async () => {
         return await Category.find();
       },

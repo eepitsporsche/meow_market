@@ -1,21 +1,28 @@
-import React, { createContext, useContext, useReducer } from "react";
-import { reducer } from './reducers'
+import React, { createContext, useContext, useReducer, useEffect } from "react";
+import { reducer } from './reducers'; // Ensure correct import of your reducer
 
 const StoreContext = createContext();
 const { Provider } = StoreContext;
 
-export function useProductReducer(initialState) {
-  return useReducer(reducer, initialState)
-}
+const useProductReducer = (initialState) => {
+  return useReducer(reducer, initialState);
+};
 
 const StoreProvider = ({ value = [], ...props }) => {
-  const [state, dispatch] = useProductReducer({
+  const initialState = {
     products: [],
-    cart: [],
+    cart: JSON.parse(localStorage.getItem('cart')) || [], // Load cart state from localStorage
     cartOpen: false,
     categories: [],
     currentCategory: '',
-  });
+  };
+
+  const [state, dispatch] = useProductReducer(initialState);
+
+  useEffect(() => {
+    // Save cart state to localStorage whenever it changes
+    localStorage.setItem('cart', JSON.stringify(state.cart));
+  }, [state.cart]);
 
   return <Provider value={[state, dispatch]} {...props} />;
 };

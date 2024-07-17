@@ -12,6 +12,7 @@ const typeDefs = `
     quantity: Int
     price: Float
     category: Category
+    breed: [String]
   }
 
   type Order {
@@ -53,6 +54,7 @@ const typeDefs = `
     user: User
     order(_id: ID!): Order
     checkout(products: [ProductInput]): Checkout
+    recommendedProducts(breed: String!): [Product]
   }
 
   type Mutation {

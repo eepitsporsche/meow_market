@@ -18,3 +18,14 @@ a {
 a:hover {
     color: rgb(188, 167, 224);
 }
+
+.cart-icon {
+    position: fixed;
+    top: 100px;
+    right: 50px;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    z-index: 1000; /* Ensure it stays on top of other elements */
+  }

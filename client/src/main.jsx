@@ -11,6 +11,10 @@ import Signup from './pages/Signup';
 // import Account from './pages/Account';
 import OrderHistory from './pages/OrderHistory';
 import Account from './pages/Account.jsx';
+import ProductList from './components/ProductList.jsx/index.jsx';
+import Cart from './components/Cart/index.jsx';
+import Recommended from './pages/Recommended.jsx';
+import CartPage from './components/Cart/CartPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -48,7 +52,19 @@ const router = createBrowserRouter([
         {
           path: '/subscription',
           element: <Subscription />
-        }
+        },
+         {
+              path: '/products',
+              element: <ProductList />
+            },
+            {
+              path: '/cart',
+              element: <CartPage />
+            },
+            {
+              path: '/recommendations',
+              element: <Recommended />
+            }
     // {
     //     path: '/success',
     //     element: <Success />
