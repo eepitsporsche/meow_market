@@ -94,11 +94,11 @@ function Detail() {
             alt={currentProduct.name}
           />
 
-          <p>{currentProduct.description}</p>
+          <p className="productDescription">{currentProduct.description}</p>
 
-          <p>
+          <p className="productDetailPrice">
             <strong>Price:</strong>${currentProduct.price}{' '}
-            
+
             <button onClick={addToCart}>Add to Cart</button>
 
             <button

@@ -5,6 +5,7 @@ import { ADD_TO_CART, UPDATE_CART_QUANTITY } from '../utils/actions';
 import { idbPromise } from '../utils/helpers';
 import { Link } from 'react-router-dom';
 import Cart from '../components/Cart';
+import './shop.css';
 
 const GET_RECOMMENDED_PRODUCTS = gql`
   query getRecommendedProducts($breed: String!) {
@@ -36,7 +37,7 @@ const Recommended = () => {
     if (catBreed) {
       getRecommendedProducts({ variables: { breed: catBreed } });
     } else {
-      alert('Please enter a breed to get recommendations');
+      alert('Please enter a breed to get recommendations.');
     }
   };
 
@@ -63,7 +64,7 @@ const Recommended = () => {
   };
 
   return (
-    <div>
+    <div className='recommendationContainer'>
       <Cart />
       <button>
         <Link to="/shop">Shop All Products</Link>

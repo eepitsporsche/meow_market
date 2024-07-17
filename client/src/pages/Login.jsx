@@ -56,7 +56,9 @@ function Login(props) {
         </div>
         {error ? (
           <div>
-            <p className="">The provided credentials are incorrect</p>
+            <p className="">The provided credentials are incorrect.
+              Please try again.
+            </p>
           </div>
         ) : null}
         <div className="">
