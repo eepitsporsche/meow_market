@@ -32,16 +32,28 @@ class AuthService {
     login(idToken) {
         // Saves user token to localStorage
         localStorage.setItem('id_token', idToken);
-
         window.location.assign('/');
     }
 
     logout() {
         // Clear user token and profile data from localStorage
         localStorage.removeItem('id_token');
+        localStorage.removeItem('cart');
         // Reload the page and reset the state of the application
         window.location.assign('/');
     }
+
+    // Save cart to localStorage
+  saveCart(cart) {
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }
+
+  // Retrieve cart from localStorage
+  getCart() {
+    const cart = localStorage.getItem('cart');
+    return cart ? JSON.parse(cart) : [];
+  }
+
 }
 
 export default new AuthService();
