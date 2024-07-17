@@ -1,4 +1,13 @@
 /* styles.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Pompiere&display=swap');
+
+* {
+    font-family: "Pompiere", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
 html, body {
     height: 100%;
     margin: 0;
@@ -36,7 +45,6 @@ html, body {
     font-weight: bold;
     color: #000000;
     text-align: center;
-    margin-top: 10px;
     animation: bounceIn 1.5s ease-out;
     
 }
@@ -55,8 +63,7 @@ html, body {
     margin: auto;
     margin-bottom: 30px;
     margin-top: 50px;
-   
-
+    overflow: auto;
   }
   .homeContainer2{
     display: flex;
@@ -71,6 +78,7 @@ html, body {
     padding: 20px;
     margin: auto;
     margin-bottom: 20px;
+    overflow: auto;
   }
   h2{
     font-size: 2.5rem;
@@ -87,7 +95,7 @@ html, body {
   }
   
   .homeContainer1 button, .homeContainer2 button {
-    margin-top: 20px;
+    margin-top: 10px;
     padding: 10px 20px;
     font-size: 1rem;
     color: #fff;
