@@ -85,7 +85,8 @@ a {
 
   footer ul li {
     list-style-type: none;
-    margin-left: -23%;
+    margin-left: -30%;
+    text-align: center;
   }
 
   .footer-section {
@@ -101,7 +102,7 @@ a {
 /* Additional media query adjustments for very small screens */
 @media (max-width: 480px) {
   .footer-content {
-    align-items: flex-start;
+    align-items: center;
   }
 
   .footerTitle {
@@ -118,7 +119,8 @@ a {
 
   footer ul li {
     list-style-type: none;
-    margin-left: -23%;
+    margin-left: -30%;
+    text-align: center;
     font-size: 0.9rem;
   }
   
