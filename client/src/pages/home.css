@@ -56,7 +56,7 @@ html, body {
     justify-content: center;
     height: 30vh;
     width: 80vh;
-    background-color: #706f6f56;
+    background-color: #a1a1a156;
     border-radius: 10px;
     text-align: center;
     padding: 30px;
@@ -67,6 +67,8 @@ html, body {
  
   .homeH2{
     font-size: 2.5rem;
+    color: #000000;
+    font-weight: bold;
   }
   .shopBtn{
     text-decoration: none;
@@ -77,6 +79,7 @@ html, body {
     margin: 10px 0;
     font-size: 1.2rem;
     color: #333;
+    font-weight: bold;
   }
   
   .homeContainer1 button, .homeContainer2 button {

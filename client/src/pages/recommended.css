@@ -1,0 +1,148 @@
+.recommendationContainer {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: none#f9f9f9;
+    border-radius: 10px;
+  }
+  
+  .recommendationContainer h2,
+  .recommendationContainer h1 {
+    text-align: center;
+    color: #6200ea;
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .recommendationContainer form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    justify-content: flex-start;
+    margin: 0 auto;
+  }
+  
+  .catInfo {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .catInfo div {
+    margin-bottom: 15px;
+  }
+  
+  .catInfo label {
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .catInfo input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+  }
+  .catInfo input:focus {
+    outline: none;
+    border-color: #555;
+  }
+  .recommendationContainer button {
+    background-color: #4c01a1;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+    margin: 10px; /* Add some margin to space out the buttons */
+  }
+  
+  .recommendationContainer button:hover {
+    background-color: #3302a5;
+  }
+  
+  .recommendationContainer .products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-left:-25px;
+  }
+  
+  .recommendationContainer .products li {
+    list-style: none;
+    background-color: #d6d3d38c;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .recommendationContainer .products img {
+    width: 180px;
+    height: 180px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .recommendationContainer .products p {
+    font-size: 1rem;
+    color: #030303;
+    margin: 10px 0;
+  }
+  
+  .recommendationContainer .products .price,
+  .recommendationContainer .products button {
+    margin-top: 10px;
+  }
+  
+  .recommendationContainer .products .price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #000;
+  }
+  
+  .recommendationContainer .products button {
+    background-color: #4c01a1;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+  }
+  
+  .recommendationContainer .products button:hover {
+    background-color: #3302a5;
+  }
+  .nothingFound{
+    text-align: center;
+    color: crimson;
+  }
+  .recommendedProducts{
+    color: #030303;
+  }
+  
+  @media (max-width: 768px) {
+    .recommendationContainer h2,
+    .recommendationContainer h1 {
+      font-size: 1.5rem;
+    }
+  
+    .recommendationContainer form label {
+      font-size: 0.9rem;
+    }
+  }
+  
