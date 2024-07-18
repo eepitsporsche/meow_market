@@ -126,7 +126,7 @@ const Recommended = () => {
           </ul>
         </div>
       ) : (
-        !loading && <p className='nothingFound'>No recommended products found.</p>
+        !loading
       )}
     </div>
   );
