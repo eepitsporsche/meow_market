@@ -5,7 +5,7 @@ import { ADD_TO_CART, UPDATE_CART_QUANTITY } from '../utils/actions';
 import { idbPromise } from '../utils/helpers';
 import { Link } from 'react-router-dom';
 import Cart from '../components/Cart';
-import './shop.css';
+import './recommended.css';
 
 const GET_RECOMMENDED_PRODUCTS = gql`
   query getRecommendedProducts($breed: String!) {
@@ -71,7 +71,8 @@ const Recommended = () => {
       </button>
       <h2>Shop for Your Cat</h2>
       <form onSubmit={handleSubmit}>
-        <div>
+        <div className="catInfo">
+        <div >
           <label>
             Cat Name:
             <input
@@ -104,19 +105,20 @@ const Recommended = () => {
             />
           </label>
         </div>
+        </div>
         <button type="submit">Get Recommendations</button>
       </form>
       {loading && <p>Loading...</p>}
       {error && <p>Error loading recommended products. Please try again.</p>}
       {data && data.recommendedProducts && data.recommendedProducts.length > 0 ? (
         <div>
-          <h1>Recommended Products for {catName}</h1>
-          <ul>
+          <h1 className='recommendedProducts'>Recommended Products for {catName}</h1>
+          <ul className="products">
             {data.recommendedProducts.map((product) => (
               <li key={product._id}>
                 <img src={`/images/${product.image}`} alt={product.name} width="50" />
                 <p>{product.name}</p>
-                <p>{product.description}</p>
+                {/* <p>{product.description}</p> */}
                 <p>${product.price}</p>
                 <button onClick={() => addToCart(product)}>Add to Cart</button>
               </li>
