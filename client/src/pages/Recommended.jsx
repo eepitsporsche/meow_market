@@ -34,8 +34,12 @@ const Recommended = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (catBreed) {
-      getRecommendedProducts({ variables: { breed: catBreed } });
+    console.log('Form Submitted:', { catName, catAge, catBreed });
+
+    const breedLowerCase = catBreed.toLowerCase();
+
+    if (breedLowerCase) {
+      getRecommendedProducts({ variables: { breed: breedLowerCase } });
     } else {
       alert('Please enter a breed to get recommendations.');
     }
@@ -63,6 +67,18 @@ const Recommended = () => {
     }
   };
 
+  // Display logic for loading and errors
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error loading recommended products. Please try again.</p>;
+
+  // Handle display of no products found message
+  let noProductsFoundMessage = null;
+  if (!loading && data && data.recommendedProducts) {
+    if (data.recommendedProducts.length === 0) {
+      noProductsFoundMessage = <p className='nothingFound'>No recommended products found for {catName}</p>;
+    }
+  }
+
   return (
     <div className='recommendationContainer'>
       <Cart />
@@ -72,45 +88,44 @@ const Recommended = () => {
       <h2>Shop for Your Cat</h2>
       <form onSubmit={handleSubmit}>
         <div className="catInfo">
-        <div >
-          <label>
-            Cat Name:
-            <input
-              type="text"
-              value={catName}
-              onChange={(e) => setCatName(e.target.value)}
-              required
-            />
-          </label>
-        </div>
-        <div>
-          <label>
-            Cat Age:
-            <input
-              type="number"
-              value={catAge}
-              onChange={(e) => setCatAge(e.target.value)}
-              required
-            />
-          </label>
-        </div>
-        <div>
-          <label>
-            Cat Breed:
-            <input
-              type="text"
-              value={catBreed}
-              onChange={(e) => setCatBreed(e.target.value)}
-              required
-            />
-          </label>
-        </div>
+          <div>
+            <label>
+              Cat Name:
+              <input
+                type="text"
+                value={catName}
+                onChange={(e) => setCatName(e.target.value)}
+                required
+              />
+            </label>
+          </div>
+          <div>
+            <label>
+              Cat Age:
+              <input
+                type="number"
+                value={catAge}
+                onChange={(e) => setCatAge(e.target.value)}
+                required
+              />
+            </label>
+          </div>
+          <div>
+            <label>
+              Cat Breed:
+              <input
+                type="text"
+                value={catBreed}
+                onChange={(e) => setCatBreed(e.target.value)}
+                required
+              />
+            </label>
+          </div>
         </div>
         <button type="submit">Get Recommendations</button>
       </form>
-      {loading && <p>Loading...</p>}
-      {error && <p>Error loading recommended products. Please try again.</p>}
-      {data && data.recommendedProducts && data.recommendedProducts.length > 0 ? (
+      {noProductsFoundMessage}
+      {data && data.recommendedProducts && data.recommendedProducts.length > 0 && (
         <div>
           <h1 className='recommendedProducts'>Recommended Products for {catName}</h1>
           <ul className="products">
@@ -125,8 +140,6 @@ const Recommended = () => {
             ))}
           </ul>
         </div>
-      ) : (
-        !loading
       )}
     </div>
   );
