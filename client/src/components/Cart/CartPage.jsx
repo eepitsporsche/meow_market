@@ -70,27 +70,6 @@ const CartPage = () => {
           {state.cart.map((item) => (
             <CartItem key={item._id} item={item} />
           ))}
-
-          {/* <div className="cart-item">
-          <img src={`/images/${item.image}`} alt={item.name} />
-          <div className="cart-item-details">
-            <div className="cart-item-name">{item.name}</div>
-            <div className="cart-item-price">${item.price}</div>
-          </div>
-          <div className="cart-item-actions">
-            <input 
-              type="number"
-              placeholder="1"
-              value={item.purchaseQuantity}
-              onChange={(e) => handleChange(e, item._id)}
-            />
-            <span role="img" aria-label="trash" className="remove-item" onClick={() => removeFromCart(item)}>
-            <i className="fas fa-trash-alt"></i>
-            </span>
-          </div>
-        </div>
-      } */}
-
           <div className="cart-total">
             <strong>Total: ${calculateTotal()}</strong>
           </div>

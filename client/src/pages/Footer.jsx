@@ -26,7 +26,6 @@ const Footer = () => {
           <h3 className="footerTitle">Follow Us</h3>
           <p>Stay connected via social media:</p>
           <div className="social-icons">
-            {/* Add social media icons or links here */}
             <a href="#" className="social-icon">
               <i className="fab fa-facebook"></i>
             </a>

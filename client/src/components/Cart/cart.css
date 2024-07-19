@@ -5,36 +5,3 @@
     font-weight: 400;
     font-style: normal;
 }
-
-/* .cartContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 70%;
-    background-color: #706f6f56;
-    border-radius: 10px;
-    margin: auto;
-    padding: 3%;
-    margin-top: 3%;
-    margin-bottom: 30px;
-} */
-
-/* .cart-link {
-    cursor: pointer;
-}
-
-.closeCart {
-    position: relative;
-    right: -340px;
-    top: -20px;
-    cursor: pointer;
-}
-
-.closeCart:hover {
-    color: rgb(188, 167, 224);
-}
-
-.cartTotal {
-    float: right;
-} */

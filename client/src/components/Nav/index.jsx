@@ -28,15 +28,6 @@ function Nav() {
             <Link to="/subscription">
               Subscription
             </Link>
-           {/* <li className="">
-            <Link to="/orderHistory">
-              Order History
-            </Link>
-          </li> */}
-           
-          
-          {/*<li className="">
-            {/* this is not using the Link component to logout or user and then refresh the application to the start */}
             <a href="/" onClick={() => Auth.logout()}>
               Logout
             </a>

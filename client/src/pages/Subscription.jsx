@@ -11,8 +11,6 @@ function Subscription() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Perform subscription logic here
-    // For example, send the email to a server or API
     console.log("Subscribed with email:", email);
     setMessage("Thank you for subscribing!");
     setEmail("");

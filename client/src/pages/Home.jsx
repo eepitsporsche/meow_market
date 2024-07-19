@@ -1,5 +1,4 @@
-// import ProductList from "../components/ProductList";
-// import CategoryMenu from "../components/CategoryMenu";
+
 import "./home.css";
 import Shop from "./Shop"
 import { Link } from "react-router-dom";
@@ -25,17 +24,6 @@ const Home = () => {
       <button><Link to="/subscription">Subscribe</Link></button>
       </div>
 
-      {/*
-        <div className="homeContainer4">
-          <h2>Customer Reviews</h2>
-          <div className="review">
-            <blockquote>
-              "My cats love the toys I bought from here! Excellent service and fast delivery."
-            </blockquote>
-            <p>- Happy Customer</p>
-          </div>
-        </div>
-      </div> */}
     </div>
   );
 };
