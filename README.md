@@ -31,7 +31,7 @@ Access the app on [Heroku](https://group-fivemeowmarket-c7eee0758978.herokuapp.c
 
 
 ## Usage
-On the [Meow Market]() webpage, users may browse categories to find pet supply items for purchase. Once a user account is created and logged-in, a user may add items to their shopping cart by clicking the 'Add to cart' button found below the description of the item.
+On the [Meow Market](https://group-fivemeowmarket-c7eee0758978.herokuapp.com/) webpage, users may browse categories to find pet supply items for purchase. Once a user account is created and logged-in, a user may add items to their shopping cart by clicking the 'Add to cart' button found below the description of the item.
 
 The cart contents can be accessed by clicking the 'Cart' link at the upper right of the page. Once on the 'Cart' page, a user may remove items from the cart by clicking the 'Trash' icon found below the item.
 
