@@ -70,3 +70,20 @@ export const QUERY_USER = gql`
 `;
 
 
+export const GET_RECOMMENDED_PRODUCTS = gql`
+  query getRecommendedProducts($breed: String!) {
+    recommendedProducts(breed: $breed) {
+      _id
+      name
+      description
+      image
+      price
+      quantity
+      category {
+        _id
+        name
+      }
+      breed
+    }
+  }
+`;
