@@ -1,29 +1,13 @@
 import React, { useState } from 'react';
-import { useLazyQuery, gql } from '@apollo/client';
+import { useLazyQuery} from '@apollo/client';
 import { useStoreContext } from '../utils/GlobalState';
 import { ADD_TO_CART, UPDATE_CART_QUANTITY } from '../utils/actions';
 import { idbPromise } from '../utils/helpers';
 import { Link } from 'react-router-dom';
 import Cart from '../components/Cart';
 import './recommended.css';
+import  { GET_RECOMMENDED_PRODUCTS } from '../utils/queries'
 
-const GET_RECOMMENDED_PRODUCTS = gql`
-  query getRecommendedProducts($breed: String!) {
-    recommendedProducts(breed: $breed) {
-      _id
-      name
-      description
-      image
-      price
-      quantity
-      category {
-        _id
-        name
-      }
-      breed
-    }
-  }
-`;
 
 const Recommended = () => {
   const [catName, setCatName] = useState('');
