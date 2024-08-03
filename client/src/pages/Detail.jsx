@@ -13,6 +13,8 @@ import {
 import { QUERY_PRODUCTS } from '../utils/queries';
 import { idbPromise } from '../utils/helpers';
 
+import "./detail.css";
+
 function Detail() {
   const [state, dispatch] = useStoreContext();
   const [cartMessageAdd, setCartMessageAdd] = useState('');
@@ -118,7 +120,7 @@ function Detail() {
           <p className="productDescription">{currentProduct.description}</p>
 
           <p className="productDetailPrice">
-            <strong>Price:</strong>${currentProduct.price}{' '}
+            <strong>Price: </strong>${currentProduct.price}{' '}
 
             <button onClick={addToCart}>Add to Cart</button>
             {cartMessageAdd && <p>{cartMessageAdd}</p>}
