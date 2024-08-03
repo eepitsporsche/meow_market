@@ -15,6 +15,7 @@ const Recommended = () => {
   const [catBreed, setCatBreed] = useState('');
   const [getRecommendedProducts, { loading, data, error }] = useLazyQuery(GET_RECOMMENDED_PRODUCTS);
   const [state, dispatch] = useStoreContext();
+  const [cartMessage, setCartMessage] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -42,6 +43,17 @@ const Recommended = () => {
         ...itemInCart,
         purchaseQuantity: itemInCart.purchaseQuantity + 1,
       });
+
+
+      setCartMessage('Item added to cart!');
+      setTimeout(() => {
+        setCartMessage('');
+      }, 2000); // Clear the message after 2 seconds
+      return () => {
+          //Clear the timeout
+          clearTimeout(timerId.current);
+      };
+
     } else {
       dispatch({
         type: ADD_TO_CART,
@@ -115,11 +127,14 @@ const Recommended = () => {
           <ul className="products">
             {data.recommendedProducts.map((product) => (
               <li key={product._id}>
+                <Link to={`/products/${product._id}`}>
                 <img src={`/images/${product.image}`} alt={product.name} width="50" />
                 <p>{product.name}</p>
+                </Link>
                 {/* <p>{product.description}</p> */}
                 <p>${product.price}</p>
                 <button onClick={() => addToCart(product)}>Add to Cart</button>
+                {cartMessage && <p>{cartMessage}</p>}
               </li>
             ))}
           </ul>
