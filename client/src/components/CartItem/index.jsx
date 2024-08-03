@@ -1,4 +1,5 @@
 import { useStoreContext } from "../../utils/GlobalState";
+import { Link } from 'react-router-dom';
 import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
 import "./cartItem.css";
@@ -39,12 +40,16 @@ const CartItem = ({ item }) => {
   return (
     <div className="cart-item">
       <div className="cart-item-image"> 
-        <img
-          src={`/images/${item.image}`}
-          alt=""
-        />
+
+        <Link to={`/products/${item._id}`}>
+          <img
+            src={`/images/${item.image}`}
+            alt=""
+          />
+        </Link>
       </div>
       <div className="cart-item-details">
+        
         <div>{item.name}, &nbsp;&nbsp;${item.price}</div>
         <div>
           <span>Qty:</span>
