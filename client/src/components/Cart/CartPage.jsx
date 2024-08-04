@@ -78,7 +78,7 @@ const CartPage = () => {
             {Auth.loggedIn() ? (
               <button onClick={submitCheckout}>Checkout</button>
             ) : (
-              <span>(log in to check out)</span>
+              <span>(<Link style={{color: "rgb(188, 167, 224)"}} to="./login">Log-in</Link> to check out)</span>
             )}
           </div>
         </div>
