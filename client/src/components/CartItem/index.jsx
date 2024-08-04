@@ -49,7 +49,6 @@ const CartItem = ({ item }) => {
         </Link>
       </div>
       <div className="cart-item-details">
-        
         <div>{item.name}, &nbsp;&nbsp;${item.price}</div>
         <div>
           <span>Qty:</span>

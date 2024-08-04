@@ -34,15 +34,6 @@ function ProductItem(item) {
         purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
       });
 
-      setCartMessage('Item added to cart!');
-      setTimeout(() => {
-        setCartMessage('');
-      }, 2000); // Clear the message after 2 seconds
-      return () => {
-          //Clear the timeout
-          clearTimeout(timerId.current);
-      };
-
     } else {
       dispatch({
         type: ADD_TO_CART,
@@ -50,6 +41,15 @@ function ProductItem(item) {
       });
       idbPromise('cart', 'put', { ...item, purchaseQuantity: 1 });
     }
+
+    setCartMessage('Item added to cart!');
+    setTimeout(() => {
+      setCartMessage('');
+    }, 2000); // Clear the message after 2 seconds
+    return () => {
+        //Clear the timeout
+        clearTimeout(timerId.current);
+    };
   }
   
   
