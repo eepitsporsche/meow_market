@@ -9,7 +9,6 @@ import { useStoreContext } from "../../utils/GlobalState";
 import { ADD_MULTIPLE_TO_CART } from "../../utils/actions";
 import "./shoppingCart.css";
 import { Link } from "react-router-dom";
-import "./cart.css";
 
 const stripePromise = loadStripe(
   "pk_test_51PdNpL2LQJGxym29iOD2XSI21vDGDasH8m6wVbZtvJCs2gBnJj3uflIbhvPsm5zmkQlTo7P9QDce59RGRwvMyl2X00UIKIpsMM"
