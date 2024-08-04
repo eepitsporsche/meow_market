@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Select from 'react-select'
 import { useLazyQuery} from '@apollo/client';
 import { useStoreContext } from '../utils/GlobalState';
 import { ADD_TO_CART, UPDATE_CART_QUANTITY } from '../utils/actions';
@@ -17,6 +18,7 @@ const Recommended = () => {
   const [state, dispatch] = useStoreContext();
   const [cartMessage, setCartMessage] = useState('');
 
+
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log('Form Submitted:', { catName, catAge, catBreed });
@@ -26,7 +28,7 @@ const Recommended = () => {
     if (breedLowerCase) {
       getRecommendedProducts({ variables: { breed: breedLowerCase } });
     } else {
-      alert('Please enter a breed to get recommendations.');
+      alert('Please select a breed to get recommendations.');
     }
   };
 
@@ -44,16 +46,6 @@ const Recommended = () => {
         purchaseQuantity: itemInCart.purchaseQuantity + 1,
       });
 
-
-      setCartMessage('Item added to cart!');
-      setTimeout(() => {
-        setCartMessage('');
-      }, 2000); // Clear the message after 2 seconds
-      return () => {
-          //Clear the timeout
-          clearTimeout(timerId.current);
-      };
-
     } else {
       dispatch({
         type: ADD_TO_CART,
@@ -61,6 +53,15 @@ const Recommended = () => {
       });
       idbPromise('cart', 'put', { ...product, purchaseQuantity: 1 });
     }
+
+    setCartMessage('Item added to cart!');
+    setTimeout(() => {
+      setCartMessage('');
+    }, 2000); // Clear the message after 2 seconds
+    return () => {
+        //Clear the timeout
+        clearTimeout(timerId.current);
+    };
   };
 
   // Display logic for loading and errors
@@ -87,6 +88,7 @@ const Recommended = () => {
           <div>
             <label>
               Cat Name:
+              <br />
               <input
                 type="text"
                 value={catName}
@@ -98,6 +100,7 @@ const Recommended = () => {
           <div>
             <label>
               Cat Age:
+              <br />
               <input
                 type="number"
                 value={catAge}
@@ -109,12 +112,23 @@ const Recommended = () => {
           <div>
             <label>
               Cat Breed:
-              <input
+              <br />
+              <select value={catBreed} onChange={e => setCatBreed(e.target.value)}>
+                <option value='none'>Select</option>
+                <option value="bengal">Bengal</option>
+                <option value="maine coon">Maine Coon</option>
+                <option value="persian">Persian</option>
+                <option value="ragdoll">Ragdoll</option>
+                <option value="siamese">Siamese</option>
+                {/* value={catBreed}
+                onChange={(e) => setCatBreed(e)} */}
+              </select>
+              {/* <input
                 type="text"
                 value={catBreed}
                 onChange={(e) => setCatBreed(e.target.value)}
                 required
-              />
+              /> */}
             </label>
           </div>
         </div>
